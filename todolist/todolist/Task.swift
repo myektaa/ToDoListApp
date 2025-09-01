@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct Task {
+public struct Task {
     
-    enum TaskPriority: Int, CaseIterable {
+    public enum TaskPriority: Int, CaseIterable {
         case low = 0
         case medium = 1
         case high = 2
         
-        var name: String {
+        public var name: String {
             switch self {
             case .low:
                 return "Düşük"
@@ -26,17 +26,22 @@ struct Task {
         }
     }
     
-    var date: Date
-    var name: String
-    var priority: TaskPriority
+    public var date: Date
+    public var name: String
+    public var priority: TaskPriority
+    public let uuid: String
     
-    init(date: Date, name: String, priority: TaskPriority) {
+    public var isFavorited: Bool = false
+    public var isCompleted: Bool = false
+
+    public init(date: Date, name: String, priority: TaskPriority) {
         self.date = date
         self.name = name
         self.priority = priority
+        self.uuid = UUID().uuidString
     }
     
-    static let sampleTask: Task = {
+    public static let sampleTask: Task = {
         return Task(
             date: Date(),
             name: "",

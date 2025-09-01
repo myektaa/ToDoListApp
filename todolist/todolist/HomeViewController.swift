@@ -17,10 +17,8 @@ class HomeViewController: UIViewController {
     private let buttonSize = CGFloat(60)
     
     @IBOutlet weak var tableView: UITableView!
-    var favoriteTasks = [Task]()
-    var normalTasks = [Task]()
-    var doneTasks = [Task]() // core data veya UserDefaults
-    
+
+    let store = TaskStore.shared
     
     private let addButton: UIButton = {
         let button = UIButton(type: .system)
@@ -82,11 +80,11 @@ class HomeViewController: UIViewController {
             if let editVC = segue.destination as? EditTaskController,
                let indexPath = sender as? IndexPath {
                 if indexPath.section == 0 {
-                    editVC.task = favoriteTasks[indexPath.row]
+                    editVC.task = store.favoriteTasks[indexPath.row]
                 } else if indexPath.section == 1{
-                    editVC.task = normalTasks[indexPath.row]
+                    editVC.task = store.todoTasks[indexPath.row]
                 } else {
-                    editVC.task = doneTasks[indexPath.row]
+                    editVC.task = store.completedTasks[indexPath.row]
                 }
                 editVC.editedIndexPath = indexPath
             }
@@ -100,8 +98,7 @@ class HomeViewController: UIViewController {
             fatalError("CreateTaskController'a ulaşılmaya çalışırken hata oluştu.")
         }
         
-        //Insert into normalTasks array
-        normalTasks.insert(createdTask, at: 0) //Top of the normalTasks array
+        store.addTask(task: createdTask)
         
         //Create indexPath to be inserted to tableview
         let indexPath = IndexPath(row: 0, section: 1)
@@ -120,19 +117,16 @@ class HomeViewController: UIViewController {
             fatalError("EditTaskController'a ulaşılmaya çalışırken hata oluştu.")
         }
         
-        if editedIndexPath.section == 0 {
-            favoriteTasks[editedIndexPath.row] = editTask
-        } else if editedIndexPath.section == 1 {
-            normalTasks[editedIndexPath.row] = editTask
-        } else {
-            doneTasks[editedIndexPath.row] = editTask
+        do {
+            try store.updateTask(newTask: editTask)
+            
+            tableView.reloadData()
+            
+            print("Düzenleniyor")
+        } catch let error {
+            print(error)
         }
-        
-        tableView.reloadRows(at: [editedIndexPath], with: .automatic)
-
-        print("Düzenleniyor")
     }
-
 }
     
     extension HomeViewController: UITableViewDataSource {
@@ -142,11 +136,11 @@ class HomeViewController: UIViewController {
         
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             if section == 0 {
-                return favoriteTasks.count
+                return store.favoriteTasks.count
             } else if section == 1 {
-                return normalTasks.count
+                return store.todoTasks.count
             } else {
-                return doneTasks.count
+                return store.completedTasks.count
             }
         }
         
@@ -172,11 +166,11 @@ class HomeViewController: UIViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as! TaskCell
             let task: Task
             if indexPath.section == 0 {
-                task = favoriteTasks[indexPath.row]
+                task = store.favoriteTasks[indexPath.row]
             } else if indexPath.section == 1 {
-                task = normalTasks[indexPath.row]
+                task = store.todoTasks[indexPath.row]
             } else {
-                task = doneTasks[indexPath.row]
+                task = store.completedTasks[indexPath.row]
             }
 
             cell.taskLabel?.text = task.name
@@ -195,18 +189,31 @@ class HomeViewController: UIViewController {
         
         func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
             if editingStyle == .delete {
-                if indexPath.section == 0 {
-                    favoriteTasks.remove(at: indexPath.row)
-                } else if indexPath.section == 1 {
-                    normalTasks.remove(at: indexPath.row)
-                } else {
-                    doneTasks.remove(at: indexPath.row)
+                
+                let task = taskToOperate(for: indexPath)
+                
+                do {
+                    try store.removeTask(withUUID: task.uuid)
+                    tableView.deleteRows(at: [indexPath], with: .automatic)
+                } catch let error {
+                    print(error)
                 }
-                tableView.deleteRows(at: [indexPath], with: .automatic)
             }
         }
         
-}
+        func taskToOperate(for indexPath: IndexPath) -> Task {
+            let taskToOperate: Task
+            if indexPath.section == 0 {
+                taskToOperate = store.favoriteTasks[indexPath.row]
+            } else if indexPath.section == 1 {
+                taskToOperate = store.todoTasks[indexPath.row]
+            } else {
+                taskToOperate = store.completedTasks[indexPath.row]
+            }
+            
+            return taskToOperate
+        }
+    }
 
 extension HomeViewController: UITableViewDelegate {
     
@@ -216,15 +223,14 @@ extension HomeViewController: UITableViewDelegate {
         
         let deleteAction = UIContextualAction(style: .normal, title: "Sil")
         { (action, view, completion) in
-            if indexPath.section == 0 {
-                self.favoriteTasks.remove(at: indexPath.row)
-            } else if indexPath.section == 1 {
-                self.normalTasks.remove(at: indexPath.row)
-            } else {
-                self.doneTasks.remove(at: indexPath.row)
+            let task = self.taskToOperate(for: indexPath)
+            do {
+                try self.store.removeTask(withUUID: task.uuid)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                completion(true)
+            } catch let error {
+                completion(false)
             }
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-            completion(true)
         }
         deleteAction.backgroundColor = .red
         deleteAction.image = UIImage(systemName: "trash")
@@ -243,18 +249,16 @@ extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
                 
         let favoriAction = UIContextualAction(style: .normal, title: nil) { (action, view, completion) in
-            if indexPath.section == 1 {
-                let task = self.normalTasks.remove(at: indexPath.row)
-                self.favoriteTasks.insert(task, at: 0)
-            } else if indexPath.section == 2 {
-                let task = self.doneTasks.remove(at: indexPath.row)
-                self.favoriteTasks.insert(task, at: 0)
-            } else {
-                let task = self.favoriteTasks.remove(at: indexPath.row)
-                self.normalTasks.insert(task, at: 0)
+            var task = self.taskToOperate(for: indexPath)
+            task.isFavorited.toggle()
+            do {
+                try self.store.updateTask(newTask: task)
+                tableView.reloadData()
+                completion(true)
+            } catch let error {
+                completion(false)
             }
-            tableView.reloadData()
-            completion(true)
+            
         }
         if indexPath.section == 0 {
             favoriAction.image = UIImage(systemName: "star.slash")
@@ -266,21 +270,15 @@ extension HomeViewController: UITableViewDelegate {
         favoriAction.backgroundColor = .systemYellow
         
         let finishAction = UIContextualAction(style: .normal, title: nil) { (action, view, completion) in
-            if indexPath.section == 1 {
-                let task = self.normalTasks.remove(at: indexPath.row)
-                NotificationCenter.default.post(name: Notification.Name("doneTaskAdded"), object: task)
-                self.doneTasks.insert(task, at: 0)
-            } else if indexPath.section == 0 {
-                let task = self.favoriteTasks.remove(at: indexPath.row)
-                NotificationCenter.default.post(name: Notification.Name("doneTaskAdded"), object: task)
-                self.doneTasks.insert(task, at: 0)
-            } else {
-                let task = self.doneTasks.remove(at: indexPath.row)
-                NotificationCenter.default.post(name: Notification.Name("doneTaskRemoved"), object: task)
-                self.normalTasks.insert(task, at: 0)
+            var task = self.taskToOperate(for: indexPath)
+            task.isCompleted.toggle()
+            do {
+                try self.store.updateTask(newTask: task)
+                tableView.reloadData()
+                completion(true)
+            } catch let error {
+                completion(false)
             }
-            tableView.reloadData()
-            completion(true)
         }
         if indexPath.section == 0 {
             finishAction.image = UIImage(systemName: "checkmark.circle")
