@@ -14,11 +14,11 @@ public final class TaskStore {
     private var tasks: [Task] = []
     
     public var favoriteTasks: [Task] {
-        return tasks.filter(\.isFavorited)
+        return tasks.filter({ $0.isCompleted == false && $0.isFavorited == true })
     }
     
     public var completedTasks: [Task] {
-        return tasks.filter(\.isCompleted)
+        return tasks.filter({ $0.isCompleted == true })
     }
     
     public var todoTasks: [Task] {

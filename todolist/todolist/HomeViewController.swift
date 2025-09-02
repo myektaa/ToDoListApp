@@ -210,7 +210,6 @@ class HomeViewController: UIViewController {
             } else {
                 taskToOperate = store.completedTasks[indexPath.row]
             }
-            
             return taskToOperate
         }
     }
@@ -247,7 +246,7 @@ extension HomeViewController: UITableViewDelegate {
         return config
     }
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-                
+        
         let favoriAction = UIContextualAction(style: .normal, title: nil) { (action, view, completion) in
             var task = self.taskToOperate(for: indexPath)
             task.isFavorited.toggle()
@@ -289,6 +288,10 @@ extension HomeViewController: UITableViewDelegate {
             finishAction.image = UIImage(systemName: "checkmark.circle")
         }
         finishAction.backgroundColor = .systemGreen
+        
+        if indexPath.section == 2{
+            return UISwipeActionsConfiguration(actions: [finishAction])
+        }
         
         return UISwipeActionsConfiguration(actions: [favoriAction,finishAction])
     }

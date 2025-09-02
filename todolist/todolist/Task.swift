@@ -25,7 +25,7 @@ public struct Task {
             }
         }
     }
-    
+        
     public var date: Date
     public var name: String
     public var priority: TaskPriority
@@ -33,6 +33,7 @@ public struct Task {
     
     public var isFavorited: Bool = false
     public var isCompleted: Bool = false
+    public var isTask: Bool = false
 
     public init(date: Date, name: String, priority: TaskPriority) {
         self.date = date
