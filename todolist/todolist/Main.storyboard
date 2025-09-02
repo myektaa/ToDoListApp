@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6cf-gT-0vx">
     <device id="retina6_3" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -170,14 +169,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Nko-0L-Q4v">
-                                <rect key="frame" x="0.0" y="178" width="402" height="569"/>
+                                <rect key="frame" x="8" y="178" width="386" height="569"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TaskCell" rowHeight="70" id="GGv-cD-ZRz" customClass="TaskCell" customModule="todolist" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="402" height="70"/>
+                                        <rect key="frame" x="0.0" y="50" width="386" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GGv-cD-ZRz" id="vvD-DC-ztu">
-                                            <rect key="frame" x="0.0" y="0.0" width="402" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="386" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qqm-tc-a4T">
@@ -193,7 +192,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fav" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJR-BV-fsM">
-                                                    <rect key="frame" x="354" y="24" width="28" height="22"/>
+                                                    <rect key="frame" x="338" y="24" width="28" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -223,9 +222,9 @@
                         <constraints>
                             <constraint firstItem="Nko-0L-Q4v" firstAttribute="top" secondItem="mlt-pd-56e" secondAttribute="top" constant="10" id="8Gs-Da-En3"/>
                             <constraint firstItem="Nko-0L-Q4v" firstAttribute="centerX" secondItem="pcQ-hj-Zdl" secondAttribute="centerX" id="CGy-uk-8va"/>
-                            <constraint firstItem="Nko-0L-Q4v" firstAttribute="leading" secondItem="mlt-pd-56e" secondAttribute="leading" id="hb7-ja-N15"/>
+                            <constraint firstItem="Nko-0L-Q4v" firstAttribute="leading" secondItem="mlt-pd-56e" secondAttribute="leading" constant="8" id="hb7-ja-N15"/>
                             <constraint firstItem="mlt-pd-56e" firstAttribute="bottom" secondItem="Nko-0L-Q4v" secondAttribute="bottom" constant="10" id="hrk-hO-OaB"/>
-                            <constraint firstItem="mlt-pd-56e" firstAttribute="trailing" secondItem="Nko-0L-Q4v" secondAttribute="trailing" id="pcf-Oq-RvW"/>
+                            <constraint firstItem="mlt-pd-56e" firstAttribute="trailing" secondItem="Nko-0L-Q4v" secondAttribute="trailing" constant="8" id="pcf-Oq-RvW"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="To Do List Home" id="as0-3b-ej7"/>
@@ -426,14 +425,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="VzZ-6d-kCG" userLabel="Done Table View">
-                                <rect key="frame" x="0.0" y="178" width="402" height="569"/>
+                                <rect key="frame" x="8" y="178" width="386" height="569"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DoneCell" rowHeight="70" id="xo1-az-X1D" customClass="DoneCell" customModule="todolist" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="402" height="70"/>
+                                        <rect key="frame" x="0.0" y="50" width="386" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xo1-az-X1D" id="dsc-py-kSx">
-                                            <rect key="frame" x="0.0" y="0.0" width="402" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="386" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Hd-d2-qMl">
@@ -449,7 +448,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Done" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yia-16-gsf">
-                                                    <rect key="frame" x="339" y="24" width="43" height="22"/>
+                                                    <rect key="frame" x="323" y="24" width="43" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -477,9 +476,9 @@
                         <viewLayoutGuide key="safeArea" id="X7l-Em-iAP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="X7l-Em-iAP" firstAttribute="trailing" secondItem="VzZ-6d-kCG" secondAttribute="trailing" id="5YM-k5-uQs"/>
+                            <constraint firstItem="X7l-Em-iAP" firstAttribute="trailing" secondItem="VzZ-6d-kCG" secondAttribute="trailing" constant="8" id="5YM-k5-uQs"/>
                             <constraint firstItem="VzZ-6d-kCG" firstAttribute="top" secondItem="X7l-Em-iAP" secondAttribute="top" constant="10" id="Nz9-C3-Y24"/>
-                            <constraint firstItem="VzZ-6d-kCG" firstAttribute="leading" secondItem="X7l-Em-iAP" secondAttribute="leading" id="QHK-gg-hYE"/>
+                            <constraint firstItem="VzZ-6d-kCG" firstAttribute="leading" secondItem="X7l-Em-iAP" secondAttribute="leading" constant="8" id="QHK-gg-hYE"/>
                             <constraint firstItem="VzZ-6d-kCG" firstAttribute="centerX" secondItem="KNV-Yq-weI" secondAttribute="centerX" id="lqw-DQ-TY8"/>
                             <constraint firstItem="X7l-Em-iAP" firstAttribute="bottom" secondItem="VzZ-6d-kCG" secondAttribute="bottom" constant="10" id="tCm-rA-xdF"/>
                         </constraints>
@@ -534,7 +533,7 @@
         <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <systemColor name="secondaryLabelColor">
-            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

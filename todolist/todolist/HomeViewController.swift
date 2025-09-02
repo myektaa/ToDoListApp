@@ -164,6 +164,21 @@ class HomeViewController: UIViewController {
             formatter.timeStyle = .short
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as! TaskCell
+//            cell.backgroundColor = UIColor(
+//                red: 253 / 255,
+//                green: 126 / 255,
+//                blue: 20 / 255,
+//                alpha: 1.0
+//            )
+//            cell.clipsToBounds = true
+//            cell.layer.cornerRadius = 8
+//            cell.contentView.frame.inset(
+//                by: UIEdgeInsets(
+//                    top: 8,
+//                    left: 8,
+//                    bottom: 8,
+//                    right: 8
+//                ))
             let task: Task
             if indexPath.section == 0 {
                 task = store.favoriteTasks[indexPath.row]
