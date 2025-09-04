@@ -16,6 +16,7 @@ class HomeViewController: UIViewController {
     
     private let buttonSize = CGFloat(60)
     
+    
     @IBOutlet weak var tableView: UITableView!
 
     let store = TaskStore.shared
@@ -40,7 +41,7 @@ class HomeViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
-        
+        tableView.separatorStyle = .none
         view.addSubview(addButton)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         addButton.layer.cornerRadius = buttonSize / 2
@@ -156,6 +157,24 @@ class HomeViewController: UIViewController {
                 return nil
             }
         }
+
+        func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+            // Hücreyi kenarlardan inset ile ayır
+            cell.contentView.frame = cell.contentView.frame.inset(by: UIEdgeInsets(
+                top: 5,
+                left: 16,
+                bottom: 5,
+                right: 16
+            ))
+//            cell.contentView.layer.cornerRadius = 12
+//            cell.contentView.layer.masksToBounds = true
+//            cell.backgroundColor = UIColor(
+//                red: 253 / 255,
+//                green: 126 / 255,
+//                blue: 20 / 255,
+//                alpha: 1.0
+//            )
+        }
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let formatter = DateFormatter()
@@ -170,8 +189,10 @@ class HomeViewController: UIViewController {
 //                blue: 20 / 255,
 //                alpha: 1.0
 //            )
+//            cell.textLabel?.numberOfLines = 0
 //            cell.clipsToBounds = true
-//            cell.layer.cornerRadius = 8
+//            cell.layer.cornerRadius = 20
+            cell.selectionStyle = .none
 //            cell.contentView.frame.inset(
 //                by: UIEdgeInsets(
 //                    top: 8,

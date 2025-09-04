@@ -21,6 +21,7 @@ class CompletedController: UIViewController {
         doneTableView.dataSource = self
         doneTableView.delegate = self
                 
+        doneTableView.separatorStyle = .none
         doneTableView.translatesAutoresizingMaskIntoConstraints = false
     }
     
@@ -56,6 +57,8 @@ class CompletedController: UIViewController {
             
             let doneCell = tableView.dequeueReusableCell(withIdentifier: "DoneCell", for: indexPath) as! DoneCell
             let tasks = store.completedTasks[indexPath.row]
+            
+            doneCell.selectionStyle = .none
 
             doneCell.doneLabel?.text = tasks.name
             doneCell.doneDateLabel?.text = formatter.string(from: tasks.date)
