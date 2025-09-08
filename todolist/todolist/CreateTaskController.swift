@@ -34,6 +34,7 @@ class CreateTaskController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         view.endEditing(animated)
+        
     }
     
     @IBAction func datePickerChanged(sender: UIDatePicker) {

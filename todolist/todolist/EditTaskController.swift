@@ -20,7 +20,7 @@ class EditTaskController: UIViewController {
         
         button.configuration = .filled()
         
-        button.configuration?.background.backgroundColor = .systemBlue
+        button.configuration?.background.backgroundColor = .init(red: 0.478, green: 0.07, blue: 1.0, alpha: 1)
         
         button.configuration?.baseBackgroundColor = .lightText
         button.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 24, bottom: 8, trailing: 24)

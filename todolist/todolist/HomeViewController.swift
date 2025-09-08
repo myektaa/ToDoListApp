@@ -25,7 +25,7 @@ class HomeViewController: UIViewController {
         let button = UIButton(type: .system)
 
         button.configuration = .filled()
-        button.configuration?.baseBackgroundColor = .systemBlue
+        button.configuration?.baseBackgroundColor = .init(red: 0.478, green: 0.07, blue: 1.0, alpha: 1.0)
         button.configuration?.image = UIImage(systemName: "plus")
         button.configuration?.imagePadding = 8
         button.configuration?.preferredSymbolConfigurationForImage = UIImage.SymbolConfiguration(pointSize: 20, weight: .medium)
