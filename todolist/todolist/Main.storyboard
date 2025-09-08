@@ -180,7 +180,7 @@
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="35T-YI-20S">
                                                     <rect key="frame" x="0.0" y="4" width="386" height="62"/>
-                                                    <color key="backgroundColor" red="1" green="0.59607843137254901" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="backgroundColor" red="0.92941176470588238" green="0.90588235294117647" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                             <integer key="value" value="20"/>
@@ -189,13 +189,13 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qqm-tc-a4T">
-                                                    <rect key="frame" x="20" y="11" width="35" height="22"/>
+                                                    <rect key="frame" x="20" y="11.000000000000002" width="286" height="21.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hZA-xg-LKq">
-                                                    <rect key="frame" x="20" y="38" width="50" height="17"/>
+                                                    <rect key="frame" x="20" y="37.666666666666664" width="50" height="17.333333333333336"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" systemColor="secondaryLabelColor"/>
                                                     <nil key="highlightedColor"/>
@@ -213,6 +213,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="HJR-BV-fsM" secondAttribute="trailing" constant="20" id="FHW-i7-kHu"/>
                                                 <constraint firstItem="hZA-xg-LKq" firstAttribute="leading" secondItem="qqm-tc-a4T" secondAttribute="leading" id="JQz-Og-OwK"/>
                                                 <constraint firstItem="35T-YI-20S" firstAttribute="top" secondItem="vvD-DC-ztu" secondAttribute="top" constant="4" id="Nlk-5U-lg8"/>
+                                                <constraint firstItem="qqm-tc-a4T" firstAttribute="trailing" secondItem="35T-YI-20S" secondAttribute="trailing" constant="-80" id="UoQ-Vp-zsQ"/>
                                                 <constraint firstItem="HJR-BV-fsM" firstAttribute="centerY" secondItem="vvD-DC-ztu" secondAttribute="centerY" id="Wbo-D8-h7S"/>
                                                 <constraint firstItem="qqm-tc-a4T" firstAttribute="top" secondItem="vvD-DC-ztu" secondAttribute="topMargin" id="ZKb-hE-CPf"/>
                                                 <constraint firstAttribute="bottom" secondItem="35T-YI-20S" secondAttribute="bottom" constant="4" id="eBg-rm-7af"/>
@@ -450,7 +451,7 @@
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Srp-xr-0gG">
                                                     <rect key="frame" x="0.0" y="4" width="386" height="62"/>
-                                                    <color key="backgroundColor" red="1" green="0.59607843137254901" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="backgroundColor" red="0.92941176470588238" green="0.90588235294117647" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                             <integer key="value" value="20"/>
@@ -459,7 +460,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Hd-d2-qMl">
-                                                    <rect key="frame" x="20" y="11" width="35" height="22"/>
+                                                    <rect key="frame" x="20" y="11" width="286" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -485,6 +486,7 @@
                                                 <constraint firstItem="Yia-16-gsf" firstAttribute="centerY" secondItem="dsc-py-kSx" secondAttribute="centerY" id="m0T-YV-zEX"/>
                                                 <constraint firstItem="lIR-Tl-t5a" firstAttribute="top" secondItem="4Hd-d2-qMl" secondAttribute="bottom" constant="5" id="n5T-g0-E2C"/>
                                                 <constraint firstItem="4Hd-d2-qMl" firstAttribute="top" secondItem="dsc-py-kSx" secondAttribute="topMargin" id="qOT-kN-SVF"/>
+                                                <constraint firstItem="4Hd-d2-qMl" firstAttribute="trailing" secondItem="Srp-xr-0gG" secondAttribute="trailing" constant="-80" id="sYA-ky-Pqk"/>
                                                 <constraint firstItem="Srp-xr-0gG" firstAttribute="top" secondItem="dsc-py-kSx" secondAttribute="top" constant="4" id="wKo-pd-DMY"/>
                                                 <constraint firstItem="Srp-xr-0gG" firstAttribute="leading" secondItem="dsc-py-kSx" secondAttribute="leading" id="x3Q-Ox-blQ"/>
                                                 <constraint firstItem="lIR-Tl-t5a" firstAttribute="leading" secondItem="4Hd-d2-qMl" secondAttribute="leading" id="xv6-eW-Yqa"/>

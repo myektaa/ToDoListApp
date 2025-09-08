@@ -60,6 +60,7 @@ class CompletedController: UIViewController {
             
             doneCell.selectionStyle = .none
 
+            doneCell.doneLabel.numberOfLines = 0
             doneCell.doneLabel?.text = tasks.name
             doneCell.doneDateLabel?.text = formatter.string(from: tasks.date)
             doneCell.markLabel?.text = "✅"
@@ -102,8 +103,11 @@ extension CompletedController: UITableViewDelegate {
             doneTableView.deleteRows(at: [indexPath], with: .automatic)
             completion(true)
         }
-        deleteAction.backgroundColor = .red
-        deleteAction.image = UIImage(systemName: "trash")
+        let largeConfig = UIImage.SymbolConfiguration(pointSize: 17.0, weight: .bold, scale: .large)
+        deleteAction.image = UIImage(systemName: "trash", withConfiguration: largeConfig)?.withTintColor(.white, renderingMode: .alwaysTemplate).addBackgroundCircle(.systemRed)
+        
+        deleteAction.backgroundColor = .systemBackground
+        deleteAction.title = "Sil"
         
         let config = UISwipeActionsConfiguration(actions: [deleteAction])
         config.performsFirstActionWithFullSwipe = false

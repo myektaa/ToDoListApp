@@ -130,7 +130,7 @@ class HomeViewController: UIViewController {
     }
 }
     
-    extension HomeViewController: UITableViewDataSource {
+    extension HomeViewController: UITableViewDataSource  {
         func numberOfSections(in tableView: UITableView) -> Int {
             return 3
         }
@@ -157,24 +157,6 @@ class HomeViewController: UIViewController {
                 return nil
             }
         }
-
-        func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-            // Hücreyi kenarlardan inset ile ayır
-            cell.contentView.frame = cell.contentView.frame.inset(by: UIEdgeInsets(
-                top: 5,
-                left: 16,
-                bottom: 5,
-                right: 16
-            ))
-//            cell.contentView.layer.cornerRadius = 12
-//            cell.contentView.layer.masksToBounds = true
-//            cell.backgroundColor = UIColor(
-//                red: 253 / 255,
-//                green: 126 / 255,
-//                blue: 20 / 255,
-//                alpha: 1.0
-//            )
-        }
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let formatter = DateFormatter()
@@ -183,23 +165,7 @@ class HomeViewController: UIViewController {
             formatter.timeStyle = .short
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as! TaskCell
-//            cell.backgroundColor = UIColor(
-//                red: 253 / 255,
-//                green: 126 / 255,
-//                blue: 20 / 255,
-//                alpha: 1.0
-//            )
-//            cell.textLabel?.numberOfLines = 0
-//            cell.clipsToBounds = true
-//            cell.layer.cornerRadius = 20
             cell.selectionStyle = .none
-//            cell.contentView.frame.inset(
-//                by: UIEdgeInsets(
-//                    top: 8,
-//                    left: 8,
-//                    bottom: 8,
-//                    right: 8
-//                ))
             let task: Task
             if indexPath.section == 0 {
                 task = store.favoriteTasks[indexPath.row]
@@ -209,6 +175,7 @@ class HomeViewController: UIViewController {
                 task = store.completedTasks[indexPath.row]
             }
 
+            cell.taskLabel?.numberOfLines = 0
             cell.taskLabel?.text = task.name
             cell.dateLabel?.text = formatter.string(from: task.date)
             
@@ -267,15 +234,19 @@ extension HomeViewController: UITableViewDelegate {
                 completion(false)
             }
         }
-        deleteAction.backgroundColor = .red
-        deleteAction.image = UIImage(systemName: "trash")
+        let largeConfig = UIImage.SymbolConfiguration(pointSize: 17.0, weight: .bold, scale: .large)
+        deleteAction.image = UIImage(systemName: "trash", withConfiguration: largeConfig)?.withTintColor(.white, renderingMode: .alwaysTemplate).addBackgroundCircle(.systemRed)
+        
+        deleteAction.backgroundColor = .systemBackground
+        deleteAction.title = "Sil"
         
         let editAction = UIContextualAction(style: .normal, title: "Düzenle")
         { (action, view, completion) in
             self.performSegue(withIdentifier: "listToEdit", sender: indexPath)
         }
-        editAction.backgroundColor = .blue
-        editAction.image = UIImage(systemName: "pencil")
+        editAction.image = UIImage(systemName: "applepencil.gen1", withConfiguration: largeConfig)?.withTintColor(.white, renderingMode: .alwaysTemplate).addBackgroundCircle(.systemBlue)
+        editAction.backgroundColor = .systemBackground
+        editAction.title = "Düzenle"
         
         let config = UISwipeActionsConfiguration(actions: [deleteAction,editAction])
         config.performsFirstActionWithFullSwipe = false
@@ -295,14 +266,18 @@ extension HomeViewController: UITableViewDelegate {
             }
             
         }
+        
+        let largeConfig = UIImage.SymbolConfiguration(pointSize: 17.0, weight: .bold, scale: .large)
+        
         if indexPath.section == 0 {
-            favoriAction.image = UIImage(systemName: "star.slash")
+            favoriAction.image = UIImage(systemName: "star.slash", withConfiguration: largeConfig)?.withTintColor(.white, renderingMode: .alwaysTemplate).addBackgroundCircle(.systemYellow)
         } else if indexPath.section == 2 {
-            favoriAction.image = UIImage(systemName: "star")
+            favoriAction.image = UIImage(systemName: "star", withConfiguration: largeConfig)?.withTintColor(.white, renderingMode: .alwaysTemplate).addBackgroundCircle(.systemYellow)
         } else {
-            favoriAction.image = UIImage(systemName: "star")
+            favoriAction.image = UIImage(systemName: "star", withConfiguration: largeConfig)?.withTintColor(.white, renderingMode: .alwaysTemplate).addBackgroundCircle(.systemYellow)
         }
-        favoriAction.backgroundColor = .systemYellow
+        favoriAction.backgroundColor = .systemBackground
+
         
         let finishAction = UIContextualAction(style: .normal, title: nil) { (action, view, completion) in
             var task = self.taskToOperate(for: indexPath)
@@ -316,14 +291,14 @@ extension HomeViewController: UITableViewDelegate {
             }
         }
         if indexPath.section == 0 {
-            finishAction.image = UIImage(systemName: "checkmark.circle")
+            finishAction.image = UIImage(systemName: "checkmark.circle", withConfiguration: largeConfig)?.withTintColor(.white, renderingMode: .alwaysTemplate).addBackgroundCircle(.systemGreen)
         } else if indexPath.section == 2 {
-            finishAction.image = UIImage(systemName: "checkmark.circle.fill")
+            finishAction.image = UIImage(systemName: "checkmark.circle.fill", withConfiguration: largeConfig)?.withTintColor(.white, renderingMode: .alwaysTemplate).addBackgroundCircle(.systemGreen)
         }
         else {
-            finishAction.image = UIImage(systemName: "checkmark.circle")
+            finishAction.image = UIImage(systemName: "checkmark.circle", withConfiguration: largeConfig)?.withTintColor(.white, renderingMode: .alwaysTemplate).addBackgroundCircle(.systemGreen)
         }
-        finishAction.backgroundColor = .systemGreen
+        finishAction.backgroundColor = .systemBackground
         
         if indexPath.section == 2{
             return UISwipeActionsConfiguration(actions: [finishAction])
@@ -332,6 +307,37 @@ extension HomeViewController: UITableViewDelegate {
         return UISwipeActionsConfiguration(actions: [favoriAction,finishAction])
     }
     
+}
+
+extension UIImage {
+
+    func addBackgroundCircle(_ color: UIColor?) -> UIImage? {
+
+        let padding: CGFloat = 20
+        let rectSize = CGSize(width: size.width + padding, height: size.height + padding)
+        let rectFrame = CGRect(origin: .zero, size: rectSize)
+        let imageFrame = CGRect(x: padding / 2, y: padding / 2, width: size.width, height: size.height)
+
+        let view = UIView(frame: rectFrame)
+        view.backgroundColor = color
+        view.layer.cornerRadius = 10
+
+        UIGraphicsBeginImageContextWithOptions(rectSize, false, UIScreen.main.scale)
+
+        let renderer = UIGraphicsImageRenderer(size: rectSize)
+        let rectImage = renderer.image { ctx in
+            view.drawHierarchy(in: rectFrame, afterScreenUpdates: true)
+        }
+
+        rectImage.draw(in: rectFrame, blendMode: .normal, alpha: 1.0)
+        draw(in: imageFrame, blendMode: .normal, alpha: 1.0)
+
+        let image: UIImage? = UIGraphicsGetImageFromCurrentImageContext()
+
+        UIGraphicsEndImageContext()
+
+        return image
+    }
 }
 
 #Preview {
