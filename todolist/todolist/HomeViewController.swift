@@ -41,6 +41,8 @@ class HomeViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
+        self.view.backgroundColor = .init(named: "OG Background Color")
+        self.tableView.backgroundColor = .init(named: "OG Backgronund Color")
         tableView.separatorStyle = .none
         view.addSubview(addButton)
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -174,7 +176,7 @@ class HomeViewController: UIViewController {
             } else {
                 task = store.completedTasks[indexPath.row]
             }
-
+            
             cell.taskLabel?.numberOfLines = 0
             cell.taskLabel?.text = task.name
             cell.dateLabel?.text = formatter.string(from: task.date)
@@ -239,6 +241,7 @@ extension HomeViewController: UITableViewDelegate {
         
         deleteAction.backgroundColor = .systemBackground
         deleteAction.title = "Sil"
+        deleteAction.backgroundColor = .init(named: "OG Background Color")
         
         let editAction = UIContextualAction(style: .normal, title: "Düzenle")
         { (action, view, completion) in
@@ -247,6 +250,7 @@ extension HomeViewController: UITableViewDelegate {
         editAction.image = UIImage(systemName: "applepencil.gen1", withConfiguration: largeConfig)?.withTintColor(.white, renderingMode: .alwaysTemplate).addBackgroundCircle(.systemBlue)
         editAction.backgroundColor = .systemBackground
         editAction.title = "Düzenle"
+        editAction.backgroundColor = .init(named: "OG Background Color")
         
         let config = UISwipeActionsConfiguration(actions: [deleteAction,editAction])
         config.performsFirstActionWithFullSwipe = false
@@ -276,7 +280,7 @@ extension HomeViewController: UITableViewDelegate {
         } else {
             favoriAction.image = UIImage(systemName: "star", withConfiguration: largeConfig)?.withTintColor(.white, renderingMode: .alwaysTemplate).addBackgroundCircle(.systemYellow)
         }
-        favoriAction.backgroundColor = .systemBackground
+        favoriAction.backgroundColor = .init(named: "OG Background Color")
 
         
         let finishAction = UIContextualAction(style: .normal, title: nil) { (action, view, completion) in
@@ -298,7 +302,8 @@ extension HomeViewController: UITableViewDelegate {
         else {
             finishAction.image = UIImage(systemName: "checkmark.circle", withConfiguration: largeConfig)?.withTintColor(.white, renderingMode: .alwaysTemplate).addBackgroundCircle(.systemGreen)
         }
-        finishAction.backgroundColor = .systemBackground
+        finishAction.backgroundColor = .init(named: "OG Background Color")
+
         
         if indexPath.section == 2{
             return UISwipeActionsConfiguration(actions: [finishAction])

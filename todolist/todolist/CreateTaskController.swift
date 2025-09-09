@@ -19,7 +19,8 @@ class CreateTaskController: UIViewController {
         super.viewDidLoad()
         
         taskTextField.delegate = self
-        
+        self.view.backgroundColor = .init(named: "OG Background Color")
+
         //Default value for task
         task = Task(
             date: Date(),

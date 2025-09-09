@@ -45,6 +45,8 @@ class EditTaskController: UIViewController {
         setupConstraints()
         editPriority.removeAllSegments()
                         
+        self.view.backgroundColor = .init(named: "OG Background Color")
+
         editField.delegate = self
         editField.addTarget(self, action: #selector(editFieldDidChange(_:)), for: .editingChanged)
 

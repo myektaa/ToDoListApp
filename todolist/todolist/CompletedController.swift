@@ -21,6 +21,8 @@ class CompletedController: UIViewController {
         doneTableView.dataSource = self
         doneTableView.delegate = self
                 
+        self.view.backgroundColor = .init(named: "OG Background Color")
+        self.doneTableView.backgroundColor = .init(named: "OG Backgronund Color")
         doneTableView.separatorStyle = .none
         doneTableView.translatesAutoresizingMaskIntoConstraints = false
     }
@@ -108,6 +110,7 @@ extension CompletedController: UITableViewDelegate {
         
         deleteAction.backgroundColor = .systemBackground
         deleteAction.title = "Sil"
+        deleteAction.backgroundColor = .init(named: "OG Background Color")
         
         let config = UISwipeActionsConfiguration(actions: [deleteAction])
         config.performsFirstActionWithFullSwipe = false
