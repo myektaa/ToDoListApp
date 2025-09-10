@@ -11,13 +11,7 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
-    private let switchSize = CGFloat(60)
-    
-    private let modeLabel = {
-        let label = UILabel()
-        label.text = "Tema değişikliği için butona tıklayınız."
-        return label
-    }
+    private let buttonSize = CGFloat(60)
     
     private let switchButton = {
         let button = UISwitch()
@@ -28,30 +22,100 @@ class ProfileViewController: UIViewController {
         switchButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            switchButton.widthAnchor.constraint(equalToConstant: switchSize),
-            switchButton.heightAnchor.constraint(equalToConstant: switchSize),
-            switchButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 60),
-            switchButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 180)
+            switchButton.widthAnchor.constraint(equalToConstant: buttonSize),
+            switchButton.heightAnchor.constraint(equalToConstant: buttonSize),
+            switchButton.leadingAnchor.constraint(equalTo: changeModeLabel.leadingAnchor, constant: 160),
+            switchButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 460)
         ])
     }
     
-//    private func labelSetupConstraints() {
-//        modeLabe
-//    
-//    }
+    private func checkSwitchButton() {
+        switchButton.addTarget(self, action:  #selector(switchChanged(_:)), for: .valueChanged)
+    }
+    
+    @objc private func switchChanged(_ sender: UISwitch) {
+            if sender.isOn {
+                changeModeLabel.text = "🌙 Koyu Mod"
+            } else {
+                changeModeLabel.text = "☀️ Açık Mod"
+            }
+    }
+    
+    private let changeModeLabel = {
+        let modeLabel = UILabel()
+        modeLabel.text = "☀️ Açık Mod"
+        return modeLabel
+    }()
+    
+    private func labelSetupConstraints() {
+        changeModeLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            changeModeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 90),
+            changeModeLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 465)
+        ])
+    }
+    
+    private let languagePopUpButton = {
+        let languageButton = UIButton(type: .system)
+        languageButton.backgroundColor = .init(named: "Button Color For To Do List")
+        languageButton.tintColor = .white
+        return languageButton
+    }()
+    
+    func setupLanguageButton(){
+        let optionClosure = {(action: UIAction) in
+            print(action.title)}
+        
+        languagePopUpButton.menu = UIMenu(children: [
+            UIAction(title: "Türkçe", state: .on, handler: optionClosure),
+            UIAction(title: "İngilizce", state: .on, handler: optionClosure)
+        ])
+    
+        languagePopUpButton.showsMenuAsPrimaryAction = true
+        languagePopUpButton.changesSelectionAsPrimaryAction = true
+        
+        
+        languagePopUpButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            languagePopUpButton.widthAnchor.constraint(equalToConstant: 100),
+            languagePopUpButton.heightAnchor.constraint(equalToConstant: 30),
+            languagePopUpButton.leadingAnchor.constraint(equalTo: languageLabel.leadingAnchor, constant: 135),
+            languagePopUpButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 535)
+        ])
+    }
+    
+    private let languageLabel = {
+       let languageLabel = UILabel()
+        languageLabel.text = "🌍 Dil"
+        return languageLabel
+    }()
+    
+    private func languageLabelSetupConstraints(){
+        languageLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            languageLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 90),
+            languageLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 540)
+        ])
+    }
     
     override func viewDidLoad() {
    
         super.viewDidLoad()
         self.view.backgroundColor = .init(named: "OG Background Color")
         
-        view.addSubview(modeLabel())
+        view.addSubview(changeModeLabel)
         view.addSubview(switchButton)
-        switchButton.layer.cornerRadius = switchSize / 2
+        view.addSubview(languagePopUpButton)
+        languagePopUpButton.layer.cornerRadius = buttonSize / 4
+        view.addSubview(languageLabel)
+        languageLabelSetupConstraints()
         setupConstraints()
-//        labelSetupConstraints()
-        
-        
+        labelSetupConstraints()
+        checkSwitchButton()
+        setupLanguageButton()
          }
     
 }

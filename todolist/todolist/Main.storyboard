@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6cf-gT-0vx">
-    <device id="retina6_3" orientation="portrait" appearance="light"/>
+    <device id="retina6_3" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -33,34 +33,34 @@
         <scene sceneID="HVA-Y9-fwf">
             <objects>
                 <viewController storyboardIdentifier="EditTaskController" id="P5M-ld-30z" customClass="EditTaskController" customModule="todolist" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="JWO-Gp-vCr">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="JWO-Gp-vCr">
                         <rect key="frame" x="0.0" y="0.0" width="402" height="802"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="Dky-27-4cI">
+                            <view contentMode="scaleToFill" ambiguous="YES" id="Dky-27-4cI">
                                 <rect key="frame" x="0.0" y="0.0" width="402" height="802"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Llt-QI-PWt">
-                                        <rect key="frame" x="8" y="70" width="386" height="724"/>
+                                        <rect key="frame" x="8" y="70" width="858" height="724"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sJ3-9g-wS8">
-                                                <rect key="frame" x="0.0" y="0.0" width="386" height="112"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="858" height="112"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vda-Ha-8My">
-                                                        <rect key="frame" x="16" y="0.0" width="354" height="112"/>
+                                                        <rect key="frame" x="16" y="0.0" width="826" height="112"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5gz-A4-G8p">
-                                                                <rect key="frame" x="0.0" y="0.0" width="354" height="32"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="826" height="32"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hedef Ekle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VYh-F0-BlK">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="77.666666666666671" height="32"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="82.666666666666671" height="32"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Hedefi düzenleyin." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C3A-rq-V3p">
-                                                                        <rect key="frame" x="85.666666666666657" y="0.0" width="268.33333333333337" height="32"/>
+                                                                        <rect key="frame" x="90.666666666666686" y="0.0" width="735.33333333333326" height="32"/>
                                                                         <color key="backgroundColor" name="OG Background Color"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
@@ -74,16 +74,16 @@
                                                                 </constraints>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lxZ-65-aMg">
-                                                                <rect key="frame" x="0.0" y="40" width="354" height="32"/>
+                                                                <rect key="frame" x="0.0" y="40" width="826" height="32"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Öncelik" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oau-Ay-TKl">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="77.666666666666671" height="32"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="82.666666666666671" height="32"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="GWR-vO-eoS">
-                                                                        <rect key="frame" x="85.666666666666657" y="0.0" width="268.33333333333337" height="33"/>
+                                                                        <rect key="frame" x="90.666666666666686" y="0.0" width="735.33333333333326" height="33"/>
                                                                         <color key="backgroundColor" name="OG Background Color"/>
                                                                         <segments>
                                                                             <segment title="Düşük"/>
@@ -94,16 +94,16 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hUm-Ti-vxZ">
-                                                                <rect key="frame" x="0.0" y="80" width="354" height="32"/>
+                                                                <rect key="frame" x="0.0" y="80" width="826" height="32"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="500" verticalHuggingPriority="251" text="Bitiş Tarihi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXn-6C-rsJ">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="77.666666666666671" height="32"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="82.666666666666671" height="32"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FxQ-zT-2td">
-                                                                        <rect key="frame" x="85.666666666666657" y="0.0" width="268.33333333333337" height="32"/>
+                                                                        <rect key="frame" x="90.666666666666686" y="0.0" width="735.33333333333326" height="32"/>
                                                                         <color key="backgroundColor" name="OG Background Color"/>
                                                                     </view>
                                                                 </subviews>
@@ -126,10 +126,10 @@
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="248" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="IOU-f0-ySc">
-                                                <rect key="frame" x="0.0" y="120" width="386" height="604"/>
+                                                <rect key="frame" x="0.0" y="120" width="858" height="604"/>
                                                 <subviews>
                                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="baZ-MV-lb9">
-                                                        <rect key="frame" x="0.0" y="0.0" width="386" height="604"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="858" height="604"/>
                                                         <color key="backgroundColor" name="OG Background Color"/>
                                                         <color key="tintColor" name="Date Color For To Do List"/>
                                                         <locale key="locale" localeIdentifier="tr_TR"/>
@@ -455,18 +455,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="VzZ-6d-kCG" userLabel="Done Table View">
-                                <rect key="frame" x="8" y="178" width="386" height="569"/>
+                                <rect key="frame" x="70" y="116" width="734" height="189"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DoneCell" rowHeight="70" id="xo1-az-X1D" customClass="DoneCell" customModule="todolist" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="386" height="70"/>
+                                        <rect key="frame" x="0.0" y="50" width="734" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xo1-az-X1D" id="dsc-py-kSx">
-                                            <rect key="frame" x="0.0" y="0.0" width="386" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="734" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Srp-xr-0gG">
-                                                    <rect key="frame" x="0.0" y="4" width="386" height="62"/>
+                                                    <rect key="frame" x="0.0" y="4" width="734" height="62"/>
                                                     <color key="backgroundColor" systemColor="secondaryLabelColor"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -476,7 +476,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Hd-d2-qMl">
-                                                    <rect key="frame" x="20" y="11" width="286" height="22"/>
+                                                    <rect key="frame" x="20" y="11" width="634" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -488,7 +488,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Done" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yia-16-gsf">
-                                                    <rect key="frame" x="323" y="24" width="43" height="22"/>
+                                                    <rect key="frame" x="671" y="24" width="43" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
