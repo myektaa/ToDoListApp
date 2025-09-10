@@ -45,11 +45,26 @@ class HomeViewController: UIViewController {
         self.tableView.backgroundColor = .init(named: "OG Backgronund Color")
         tableView.separatorStyle = .none
         view.addSubview(addButton)
+        
+        let settingsButton = UIBarButtonItem(
+            image: UIImage(systemName: "gear"),
+            style: .plain,
+            target: self,
+            action: #selector(settingAction)
+        )
+        navigationItem.rightBarButtonItems = [settingsButton]
+        
         tableView.translatesAutoresizingMaskIntoConstraints = false
         addButton.layer.cornerRadius = buttonSize / 2
         setupConstraints()
         setupAction()
     }
+    
+    @objc private func settingAction(){
+        print("Settings")
+        performSegue(withIdentifier: "toDoSettings", sender: nil)
+    }
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -116,7 +131,7 @@ class HomeViewController: UIViewController {
         
         guard let editTaskController = segue.source as? EditTaskController,
               let editTask = editTaskController.task,
-              let editedIndexPath = editTaskController.editedIndexPath else {
+              editTaskController.editedIndexPath != nil else {
             fatalError("EditTaskController'a ulaşılmaya çalışırken hata oluştu.")
         }
         
@@ -130,6 +145,7 @@ class HomeViewController: UIViewController {
             print(error)
         }
     }
+
 }
     
     extension HomeViewController: UITableViewDataSource  {
@@ -232,7 +248,7 @@ extension HomeViewController: UITableViewDelegate {
                 try self.store.removeTask(withUUID: task.uuid)
                 tableView.deleteRows(at: [indexPath], with: .automatic)
                 completion(true)
-            } catch let error {
+            } catch {
                 completion(false)
             }
         }
@@ -265,7 +281,7 @@ extension HomeViewController: UITableViewDelegate {
                 try self.store.updateTask(newTask: task)
                 tableView.reloadData()
                 completion(true)
-            } catch let error {
+            } catch {
                 completion(false)
             }
             
@@ -290,7 +306,7 @@ extension HomeViewController: UITableViewDelegate {
                 try self.store.updateTask(newTask: task)
                 tableView.reloadData()
                 completion(true)
-            } catch let error {
+            } catch {
                 completion(false)
             }
         }
@@ -318,10 +334,9 @@ extension UIImage {
 
     func addBackgroundCircle(_ color: UIColor?) -> UIImage? {
 
-        let padding: CGFloat = 20
-        let rectSize = CGSize(width: size.width + padding, height: size.height + padding)
+        let rectSize = CGSize(width: 48, height: 48)
         let rectFrame = CGRect(origin: .zero, size: rectSize)
-        let imageFrame = CGRect(x: padding / 2, y: padding / 2, width: size.width, height: size.height)
+        let imageFrame = CGRect(x: (48 - size.width) / 2, y: (48 - size.height) / 2, width: size.width, height: size.height)
 
         let view = UIView(frame: rectFrame)
         view.backgroundColor = color

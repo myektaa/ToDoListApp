@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UITableViewDelegate {
     
     private let buttonSize = CGFloat(60)
     
@@ -101,22 +101,67 @@ class ProfileViewController: UIViewController {
         ])
     }
     
+    private let cancelButton = {
+       let button = UIButton(type: .system)
+        let image = UIImage(systemName: "multiply")
+        button.setImage(image, for: .normal)
+        button.tintColor = .init(named: "Button Color For To Do List")
+        button.addTarget(self, action: #selector(cancelTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    @objc private func cancelTapped(){
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    private func cancelSetupConstraints(){
+        cancelButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            cancelButton.widthAnchor.constraint(equalToConstant: 100),
+            cancelButton.heightAnchor.constraint(equalToConstant: 30),
+            cancelButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -320),
+            cancelButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20)
+        ])
+    }
+    
+    private let settingsTableView = {
+       let tableView = UITableView()
+        return tableView
+    }()
+    
+    private func settingTVSetupConstraints(){
+        settingsTableView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            settingsTableView.widthAnchor.constraint(equalToConstant: 300),
+            settingsTableView.heightAnchor.constraint(equalToConstant: 500),
+            settingsTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -45),
+            settingsTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 150)
+        ])
+                }
+    
     override func viewDidLoad() {
    
         super.viewDidLoad()
         self.view.backgroundColor = .init(named: "OG Background Color")
         
-        view.addSubview(changeModeLabel)
-        view.addSubview(switchButton)
-        view.addSubview(languagePopUpButton)
-        languagePopUpButton.layer.cornerRadius = buttonSize / 4
-        view.addSubview(languageLabel)
-        languageLabelSetupConstraints()
-        setupConstraints()
-        labelSetupConstraints()
-        checkSwitchButton()
-        setupLanguageButton()
-         }
+//        view.addSubview(changeModeLabel)
+//        view.addSubview(switchButton)
+//        view.addSubview(languagePopUpButton)
+//        languagePopUpButton.layer.cornerRadius = buttonSize / 4
+//        view.addSubview(languageLabel)
+        view.addSubview(cancelButton)
+        view.addSubview(settingsTableView)
+        settingTVSetupConstraints()
+        cancelSetupConstraints()
+//        languageLabelSetupConstraints()
+//        setupConstraints()
+//        labelSetupConstraints()
+//        checkSwitchButton()
+//        setupLanguageButton()
+        
+    }
     
 }
 
