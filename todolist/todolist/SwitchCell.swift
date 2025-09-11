@@ -1,5 +1,5 @@
 //
-//  SettingCell.swift
+//  SwitchCell.swift
 //  todolist
 //
 //  Created by MustafaYektaTaraf on 11.09.2025.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SettingsCell: UITableViewCell {
+class SwitchCell: UITableViewCell{
     static let identifier = "SettingsCell"
     
     private let iconContainer: UIView = {
@@ -31,13 +31,21 @@ class SettingsCell: UITableViewCell {
         return label
     }()
     
+    private let mySwitch: UISwitch = {
+       let mySwitch = UISwitch()
+        mySwitch.onTintColor = .systemBlue
+        return mySwitch
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(label)
         contentView.addSubview(iconContainer)
+        contentView.addSubview(mySwitch)
         iconContainer.addSubview(iconImageView)
+        
         contentView.clipsToBounds = true
-        accessoryType = .disclosureIndicator
+        accessoryType = .none
     }
     
     required init?(coder: NSCoder) {
@@ -55,10 +63,18 @@ class SettingsCell: UITableViewCell {
                                      y: (iconContainer.frame.height - imageSize)/2,
                                      width: imageSize, height: imageSize)
         
+        mySwitch.sizeToFit()
+        mySwitch.frame = CGRect(
+            x: contentView.frame.width - mySwitch.frame.width - 20,
+            y: (contentView.frame.height - mySwitch.frame.height)/2,
+            width: mySwitch.frame.width,
+            height: mySwitch.frame.height
+        )
+        
         label.frame = CGRect(
             x: iconContainer.frame.maxX + 15,
             y: 0,
-            width: contentView.frame.width - iconContainer.frame.maxX - 35,
+            width: contentView.frame.width - iconContainer.frame.maxX - mySwitch.frame.width - 40,
             height: contentView.frame.height
         )
     }
@@ -67,11 +83,13 @@ class SettingsCell: UITableViewCell {
         iconImageView.image = nil
         label.text = nil
         iconContainer.backgroundColor = nil
+        mySwitch.isOn = false
     }
     
-    public func configure(with model: SettingsOption) {
+    public func configure(with model: SettingsSwitchOption) {
         label.text = model.title
         iconImageView.image = model.icon
         iconContainer.backgroundColor = model.iconBackgroundColor
+        mySwitch.isOn = model.isOn
     }
 }

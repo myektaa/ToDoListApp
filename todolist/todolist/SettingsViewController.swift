@@ -8,6 +8,24 @@
 import Foundation
 import UIKit
 
+struct Section {
+    let title: String
+    let options: [SettingsOptionType]
+}
+
+enum SettingsOptionType {
+    case staticCell(model: SettingsOption)
+    case switchCell(model: SettingsSwitchOption)
+}
+
+struct SettingsSwitchOption {
+    let title: String
+    let icon: UIImage?
+    let iconBackgroundColor: UIColor
+    let handler: (() -> Void)
+    var isOn: Bool
+}
+
 struct SettingsOption{
     let title: String
     let icon: UIImage?
@@ -17,96 +35,7 @@ struct SettingsOption{
 
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    private let buttonSize = CGFloat(60)
-    var models = [SettingsOption]()
-    
-    private let switchButton = {
-        let button = UISwitch()
-        return button
-    }()
-    
-    private func setupConstraints() {
-        switchButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            switchButton.widthAnchor.constraint(equalToConstant: buttonSize),
-            switchButton.heightAnchor.constraint(equalToConstant: buttonSize),
-            switchButton.leadingAnchor.constraint(equalTo: changeModeLabel.leadingAnchor, constant: 160),
-            switchButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 460)
-        ])
-    }
-    
-    private func checkSwitchButton() {
-        switchButton.addTarget(self, action:  #selector(switchChanged(_:)), for: .valueChanged)
-    }
-    
-    @objc private func switchChanged(_ sender: UISwitch) {
-            if sender.isOn {
-                changeModeLabel.text = "🌙 Koyu Mod"
-            } else {
-                changeModeLabel.text = "☀️ Açık Mod"
-            }
-    }
-    
-    private let changeModeLabel = {
-        let modeLabel = UILabel()
-        modeLabel.text = "☀️ Açık Mod"
-        return modeLabel
-    }()
-    
-    private func labelSetupConstraints() {
-        changeModeLabel.translatesAutoresizingMaskIntoConstraints = false
-
-        NSLayoutConstraint.activate([
-            changeModeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 90),
-            changeModeLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 465)
-        ])
-    }
-    
-    private let languagePopUpButton = {
-        let languageButton = UIButton(type: .system)
-        languageButton.backgroundColor = .init(named: "Button Color For To Do List")
-        languageButton.tintColor = .white
-        return languageButton
-    }()
-    
-    func setupLanguageButton(){
-        let optionClosure = {(action: UIAction) in
-            print(action.title)}
-        
-        languagePopUpButton.menu = UIMenu(children: [
-            UIAction(title: "Türkçe", state: .on, handler: optionClosure),
-            UIAction(title: "İngilizce", state: .on, handler: optionClosure)
-        ])
-    
-        languagePopUpButton.showsMenuAsPrimaryAction = true
-        languagePopUpButton.changesSelectionAsPrimaryAction = true
-        
-        
-        languagePopUpButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            languagePopUpButton.widthAnchor.constraint(equalToConstant: 100),
-            languagePopUpButton.heightAnchor.constraint(equalToConstant: 30),
-            languagePopUpButton.leadingAnchor.constraint(equalTo: languageLabel.leadingAnchor, constant: 135),
-            languagePopUpButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 535)
-        ])
-    }
-    
-    private let languageLabel = {
-       let languageLabel = UILabel()
-        languageLabel.text = "🌍 Dil"
-        return languageLabel
-    }()
-    
-    private func languageLabelSetupConstraints(){
-        languageLabel.translatesAutoresizingMaskIntoConstraints = false
-
-        NSLayoutConstraint.activate([
-            languageLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 90),
-            languageLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 540)
-        ])
-    }
+    var models = [Section]()
     
     private let cancelButton = {
        let button = UIButton(type: .system)
@@ -135,21 +64,34 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     private let settingsTableView = {
        let tableView = UITableView()
         tableView.register(SettingsCell.self, forCellReuseIdentifier: SettingsCell.identifier)
+        tableView.register(SwitchCell.self, forCellReuseIdentifier: SwitchCell.identifier)
         tableView.layer.cornerRadius = 20
         return tableView
     }()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return models.count
+        return models[section].options.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let model = models[indexPath.row]
-        guard let cell = settingsTableView.dequeueReusableCell(withIdentifier: SettingsCell.identifier, for: indexPath) as? SettingsCell else {
-            return UITableViewCell()
+        let model = models[indexPath.section].options[indexPath.row]
+        
+        switch model.self {
+        case .staticCell(let model):
+            guard let cell = settingsTableView.dequeueReusableCell(withIdentifier: SettingsCell.identifier, for: indexPath) as? SettingsCell else {
+                return UITableViewCell()
+            }
+            cell.configure(with: model)
+            return cell
+        case .switchCell(let model):
+            guard let cell = settingsTableView.dequeueReusableCell(withIdentifier: SwitchCell.identifier, for: indexPath) as? SwitchCell else {
+                return UITableViewCell()
+            }
+            cell.configure(with: model)
+            return cell
         }
-        cell.configure(with: model)
-        return cell
+        
+        
     }
     
 //    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -161,12 +103,38 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
 //        }
 //    }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        settingsTableView.deselectRow(at: indexPath, animated: true)
+        let type = models[indexPath.section].options[indexPath.row]
+        switch type.self {
+        case .staticCell(let model):
+            model.handler()
+        case .switchCell(let model):
+            model.handler()
+        }
+    }
+    
     func tableViewConfigure(){
-        self.models = Array(0...5).compactMap({
-            SettingsOption(title: "Item \($0)", icon: UIImage(systemName: "house"), iconBackgroundColor: .systemPink) {
+        models.append(Section(title: "Genel", options: [
+            .switchCell(model: SettingsSwitchOption(title: "Mod", icon: UIImage(systemName: "sun.max.fill"), iconBackgroundColor: .systemBlue, handler: {
+            }, isOn: true)),
+        ]))
+        
+        models.append(Section(title: "FFAA", options: [
+            .staticCell(model: SettingsOption(title: "Dil", icon: UIImage(systemName: "globe"), iconBackgroundColor: .systemGreen) {
                 
-            }
-        })
+            }),
+            .staticCell(model: SettingsOption(title: "Dil", icon: UIImage(systemName: "globe"), iconBackgroundColor: .systemGreen) {
+            })
+        ]))
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return models.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return models[section].title
     }
     
     private func tvConstraints(){
@@ -187,22 +155,11 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         settingsTableView.delegate = self
         settingsTableView.dataSource = self
         
-        
-        view.addSubview(changeModeLabel)
-        view.addSubview(switchButton)
-        view.addSubview(languagePopUpButton)
-        languagePopUpButton.layer.cornerRadius = buttonSize / 4
-        view.addSubview(languageLabel)
         view.addSubview(cancelButton)
         view.addSubview(settingsTableView)
         tableViewConfigure()
         tvConstraints()
         cancelSetupConstraints()
-        languageLabelSetupConstraints()
-        setupConstraints()
-        labelSetupConstraints()
-        checkSwitchButton()
-        setupLanguageButton()
         
     }
     
