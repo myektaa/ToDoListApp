@@ -8,10 +8,17 @@
 import Foundation
 import UIKit
 
+struct SettingsOption{
+    let title: String
+    let icon: UIImage?
+    let iconBackgroundColor: UIColor
+    let handler: (() -> Void)
+}
 
-class ProfileViewController: UIViewController, UITableViewDelegate {
+class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     private let buttonSize = CGFloat(60)
+    var models = [SettingsOption]()
     
     private let switchButton = {
         let button = UISwitch()
@@ -127,39 +134,75 @@ class ProfileViewController: UIViewController, UITableViewDelegate {
     
     private let settingsTableView = {
        let tableView = UITableView()
+        tableView.register(SettingsCell.self, forCellReuseIdentifier: SettingsCell.identifier)
+        tableView.layer.cornerRadius = 20
         return tableView
     }()
     
-    private func settingTVSetupConstraints(){
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return models.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let model = models[indexPath.row]
+        guard let cell = settingsTableView.dequeueReusableCell(withIdentifier: SettingsCell.identifier, for: indexPath) as? SettingsCell else {
+            return UITableViewCell()
+        }
+        cell.configure(with: model)
+        return cell
+    }
+    
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        switch section{
+//        case 0:
+//            return "Ayarlar"
+//        default:
+//            return nil
+//        }
+//    }
+    
+    func tableViewConfigure(){
+        self.models = Array(0...5).compactMap({
+            SettingsOption(title: "Item \($0)", icon: UIImage(systemName: "house"), iconBackgroundColor: .systemPink) {
+                
+            }
+        })
+    }
+    
+    private func tvConstraints(){
         settingsTableView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            settingsTableView.widthAnchor.constraint(equalToConstant: 300),
-            settingsTableView.heightAnchor.constraint(equalToConstant: 500),
-            settingsTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -45),
-            settingsTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 150)
+            settingsTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 90),
+            settingsTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            settingsTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            settingsTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30)
         ])
-                }
+    }
     
     override func viewDidLoad() {
    
         super.viewDidLoad()
         self.view.backgroundColor = .init(named: "OG Background Color")
+        settingsTableView.delegate = self
+        settingsTableView.dataSource = self
         
-//        view.addSubview(changeModeLabel)
-//        view.addSubview(switchButton)
-//        view.addSubview(languagePopUpButton)
-//        languagePopUpButton.layer.cornerRadius = buttonSize / 4
-//        view.addSubview(languageLabel)
+        
+        view.addSubview(changeModeLabel)
+        view.addSubview(switchButton)
+        view.addSubview(languagePopUpButton)
+        languagePopUpButton.layer.cornerRadius = buttonSize / 4
+        view.addSubview(languageLabel)
         view.addSubview(cancelButton)
         view.addSubview(settingsTableView)
-        settingTVSetupConstraints()
+        tableViewConfigure()
+        tvConstraints()
         cancelSetupConstraints()
-//        languageLabelSetupConstraints()
-//        setupConstraints()
-//        labelSetupConstraints()
-//        checkSwitchButton()
-//        setupLanguageButton()
+        languageLabelSetupConstraints()
+        setupConstraints()
+        labelSetupConstraints()
+        checkSwitchButton()
+        setupLanguageButton()
         
     }
     
