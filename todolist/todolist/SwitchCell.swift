@@ -8,7 +8,7 @@
 import UIKit
 
 class SwitchCell: UITableViewCell{
-    static let identifier = "SettingsCell"
+    static let identifier = "SwitchCell"
     
     private let iconContainer: UIView = {
         let view = UIView()

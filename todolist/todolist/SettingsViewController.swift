@@ -116,15 +116,13 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableViewConfigure(){
         models.append(Section(title: "Genel", options: [
-            .switchCell(model: SettingsSwitchOption(title: "Mod", icon: UIImage(systemName: "sun.max.fill"), iconBackgroundColor: .systemBlue, handler: {
+            .switchCell(model: SettingsSwitchOption(title: "Mod", icon: UIImage(systemName: "sun.max.fill"), iconBackgroundColor: .systemGreen, handler: {
             }, isOn: true)),
+            .staticCell(model: SettingsOption(title: "Dil", icon: UIImage(systemName: "globe"), iconBackgroundColor: .systemBlue) {
+            })
         ]))
-        
-        models.append(Section(title: "FFAA", options: [
-            .staticCell(model: SettingsOption(title: "Dil", icon: UIImage(systemName: "globe"), iconBackgroundColor: .systemGreen) {
-                
-            }),
-            .staticCell(model: SettingsOption(title: "Dil", icon: UIImage(systemName: "globe"), iconBackgroundColor: .systemGreen) {
+        models.append(Section(title: "Hakımızda", options: [
+            .staticCell(model: SettingsOption(title: "Hakkında", icon: UIImage(systemName: "info.circle"), iconBackgroundColor: .systemBlue) {
             })
         ]))
     }
