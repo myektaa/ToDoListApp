@@ -31,11 +31,14 @@ class SwitchCell: UITableViewCell{
         return label
     }()
     
-    private let mySwitch: UISwitch = {
+    public let mySwitch: UISwitch = {
        let mySwitch = UISwitch()
         mySwitch.onTintColor = .systemBlue
+        mySwitch.setOn(false, animated: true)
         return mySwitch
     }()
+    
+    
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

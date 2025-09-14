@@ -241,7 +241,7 @@ extension HomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        let deleteAction = UIContextualAction(style: .normal, title: "Sil")
+        let deleteAction = UIContextualAction(style: .normal, title: nil)
         { (action, view, completion) in
             let task = self.taskToOperate(for: indexPath)
             do {
@@ -256,16 +256,14 @@ extension HomeViewController: UITableViewDelegate {
         deleteAction.image = UIImage(systemName: "trash", withConfiguration: largeConfig)?.withTintColor(.white, renderingMode: .alwaysTemplate).addBackgroundCircle(.systemRed)
         
         deleteAction.backgroundColor = .systemBackground
-        deleteAction.title = "Sil"
         deleteAction.backgroundColor = .init(named: "OG Background Color")
         
-        let editAction = UIContextualAction(style: .normal, title: "Düzenle")
+        let editAction = UIContextualAction(style: .normal, title: nil)
         { (action, view, completion) in
             self.performSegue(withIdentifier: "listToEdit", sender: indexPath)
         }
         editAction.image = UIImage(systemName: "applepencil.gen1", withConfiguration: largeConfig)?.withTintColor(.white, renderingMode: .alwaysTemplate).addBackgroundCircle(.systemBlue)
         editAction.backgroundColor = .systemBackground
-        editAction.title = "Düzenle"
         editAction.backgroundColor = .init(named: "OG Background Color")
         
         let config = UISwipeActionsConfiguration(actions: [deleteAction,editAction])

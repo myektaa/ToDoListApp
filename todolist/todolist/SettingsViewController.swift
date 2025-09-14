@@ -88,20 +88,18 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 return UITableViewCell()
             }
             cell.configure(with: model)
+            cell.mySwitch.addTarget(self, action: #selector(switchChanged(_:)), for: .valueChanged)
             return cell
         }
-        
-        
     }
     
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        switch section{
-//        case 0:
-//            return "Ayarlar"
-//        default:
-//            return nil
-//        }
-//    }
+    @IBAction func switchChanged(_ sender: UISwitch) {
+        guard let window = UIApplication.shared.windows.first else { return }
+
+        UIView.animate(withDuration: 5) {
+            window.overrideUserInterfaceStyle = sender.isOn ? .dark : .light
+        }
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         settingsTableView.deselectRow(at: indexPath, animated: true)
@@ -116,13 +114,15 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableViewConfigure(){
         models.append(Section(title: "Genel", options: [
-            .switchCell(model: SettingsSwitchOption(title: "Mod", icon: UIImage(systemName: "sun.max.fill"), iconBackgroundColor: .systemGreen, handler: {
+            .switchCell(model: SettingsSwitchOption(title: "Mod", icon: UIImage(systemName: "sun.max.fill"), iconBackgroundColor: .systemFill, handler: {
             }, isOn: true)),
             .staticCell(model: SettingsOption(title: "Dil", icon: UIImage(systemName: "globe"), iconBackgroundColor: .systemBlue) {
             })
         ]))
         models.append(Section(title: "Hakımızda", options: [
             .staticCell(model: SettingsOption(title: "Hakkında", icon: UIImage(systemName: "info.circle"), iconBackgroundColor: .systemBlue) {
+            }),
+            .staticCell(model: SettingsOption(title: "Uygulamayı Puanlayın", icon: UIImage(systemName: "medal.star"), iconBackgroundColor: .systemYellow) {
             })
         ]))
     }
