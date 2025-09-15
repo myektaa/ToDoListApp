@@ -43,10 +43,58 @@ class AboutVC: UIViewController {
         aboutTableView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            aboutTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 90),
+            aboutTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 70),
             aboutTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
             aboutTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
             aboutTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30)
+        ])
+    }
+    
+    private let titleLabel = {
+       let title = UILabel()
+        title.text = "About"
+        title.textColor = .black
+        title.font = .systemFont(ofSize: 30, weight: .bold)
+        return title
+    }()
+    
+    private func titleConstraints(){
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 70),
+            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 35),
+        ])
+    }
+    
+    private let captionLabel = {
+        let caption = UILabel()
+        caption.text = """
+        To Do List Uygulaması
+        Bu uygulama, günlük görevlerini düzenlemek ve zamanını daha verimli kullanmanı sağlamak için geliştirilmiştir.
+
+        Özellikler:
+        - Görev ekleme, düzenleme, favorileme ve silme
+        - Tamamlanan görevleri işaretleme
+        - Basit, anlaşılır ve odaklı bir arayüz
+        - Tema ve dil seçenekleriyle kişiselleştirme
+
+        Bu uygulamanın amacı, kullanıcıların işlerini planlarken onlara kolaylık ve pratiklik sağlamaktır. 
+        Düzenli bir yapılacaklar listesiyle günlük hedeflerine ulaşmak artık çok daha kolay.
+        """
+        caption.textColor = .black
+        caption.font = .systemFont(ofSize: 16, weight: .regular)
+        caption.numberOfLines = 0
+        return caption
+    }()
+    
+    private func captionLabelConstraints(){
+        captionLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            captionLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 140),
+            captionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 35),
+            captionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -35)
         ])
     }
     
@@ -56,18 +104,18 @@ class AboutVC: UIViewController {
         
         self.view.backgroundColor = .init(named: "OG Background Color")
         
-        view.addSubview(aboutTableView)
+//        view.addSubview(aboutTableView)
         view.addSubview(cancelButton)
-        tvConstraints()
+        view.addSubview(titleLabel)
+        view.addSubview(captionLabel)
+//        tvConstraints()
         cancelSetupConstraints()
+        titleConstraints()
+        captionLabelConstraints()
         
          }
 }
 
 #Preview {
-    
-    let storyboards = UIStoryboard(name: "Main", bundle: nil)
-    
-    let aboutVC = storyboards.instantiateViewController(withIdentifier: "AboutVC")
-    return aboutVC
+    AboutVC()
 }

@@ -404,6 +404,22 @@
             </objects>
             <point key="canvasLocation" x="2750.7462686567164" y="-321.28146453089244"/>
         </scene>
+        <!--Language View Controller-->
+        <scene sceneID="S4E-VM-dzi">
+            <objects>
+                <viewController id="AAk-3A-bDR" customClass="LanguageViewController" customModule="todolist" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OgK-cA-5Je">
+                        <rect key="frame" x="0.0" y="0.0" width="402" height="802"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="oh7-yD-Qlk"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="hD3-My-tWd"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7oD-0s-1d9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3624" y="441"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="uO8-WZ-gRe">
             <objects>
@@ -573,6 +589,7 @@
                     <navigationItem key="navigationItem" title="To Do List Settings" id="vw3-am-8Lx"/>
                     <connections>
                         <segue destination="PGM-aE-fJk" kind="show" identifier="aboutSection" id="xIR-98-kWd"/>
+                        <segue destination="AAk-3A-bDR" kind="show" identifier="languageSection" id="zWn-cY-XOG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t8k-NV-WeQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -582,7 +599,7 @@
         <!--AboutVC-->
         <scene sceneID="ep3-vY-Xnm">
             <objects>
-                <viewController storyboardIdentifier="aboutVC" id="PGM-aE-fJk" customClass="AboutVC" customModule="todolist" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AboutViewController" id="PGM-aE-fJk" customClass="AboutVC" customModule="todolist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7fo-o5-mN7">
                         <rect key="frame" x="0.0" y="0.0" width="402" height="802"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -593,7 +610,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MoF-SX-YxR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3800" y="441"/>
+            <point key="canvasLocation" x="3624" y="1181"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

@@ -110,6 +110,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             model.handler()
             if model.title == "Hakkında" {
                 performSegue(withIdentifier: "aboutSection", sender: self)
+            } else if model.title == "Dil" {
+                performSegue(withIdentifier: "languageSection", sender: self)
             }
         case .switchCell(let model):
             model.handler()
