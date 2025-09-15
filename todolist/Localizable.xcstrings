@@ -1,0 +1,193 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "ABOUT_CAPTION" : {
+      "comment" : "About caption",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To-Do List Application\nThis app is designed to help you organize your daily tasks and use your time more efficiently.\n\nFeatures:\n•    Add, edit, favorite, and delete tasks\n•    Mark tasks as completed\n•    Simple, clear, and focused interface\n•    Personalization with theme and language options\n\nThe purpose of this app is to make planning easier and more practical for users.\nWith a well-organized to-do list, reaching your daily goals is now much easier."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To Do List Uygulaması\nBu uygulama, günlük görevlerini düzenlemek ve zamanını daha verimli kullanmanı sağlamak için geliştirilmiştir.\n\nÖzellikler:\n• Görev ekleme, düzenleme, favorileme ve silme\n• Tamamlanan görevleri işaretleme\n• Basit, anlaşılır ve odaklı bir arayüz\n• Tema ve dil seçenekleriyle kişiselleştirme\n\nBu uygulamanın amacı, kullanıcıların işlerini planlarken onlara kolaylık ve pratiklik sağlamaktır. \nDüzenli bir yapılacaklar listesiyle günlük hedeflerine ulaşmak artık çok daha kolay."
+          }
+        }
+      }
+    },
+    "ABOUT_SECTION_TITLE" : {
+      "comment" : "About title in about section",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "About"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hakkında"
+          }
+        }
+      }
+    },
+    "BIG_SETTINGS_TITLE" : {
+      "comment" : "Big settings title in settings",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ayarlar"
+          }
+        }
+      }
+    },
+    "COMPLETED_TASKS_IN_COMPLETED" : {
+      "comment" : "Completed Tasks in completed section",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Completed Tasks"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tamamlanan Görevler"
+          }
+        }
+      }
+    },
+    "SAVE_BUTTON_IN_EDIT" : {
+      "comment" : "Save button in edit section",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kaydet"
+          }
+        }
+      }
+    },
+    "SETTINGS_ABOUT_TITLE" : {
+      "comment" : "About title in settings",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "About"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hakkında"
+          }
+        }
+      }
+    },
+    "SETTINGS_ABOUTUS_TITLE" : {
+      "comment" : "About Us title in settings",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "About Us"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hakkımızda"
+          }
+        }
+      }
+    },
+    "SETTINGS_GENERAL_TITLE" : {
+      "comment" : "General big title in settings",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "General"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Genel"
+          }
+        }
+      }
+    },
+    "SETTINGS_LANGUAGE_TITLE" : {
+      "comment" : "Language title in settings",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Language"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dil"
+          }
+        }
+      }
+    },
+    "SETTINGS_MODE_TITLE" : {
+      "comment" : "Mode title in settings",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mode"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mod"
+          }
+        }
+      }
+    },
+    "SETTINGS_RATETHEAPP_TITLE" : {
+      "comment" : "Rate the App title in settings",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rate the App"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uygulamayı Puanlayın"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

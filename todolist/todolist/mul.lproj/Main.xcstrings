@@ -1,0 +1,492 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "4Hd-d2-qMl.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Title\"; ObjectID = \"4Hd-d2-qMl\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Title"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Başlık"
+          }
+        }
+      }
+    },
+    "73f-wh-yOB.title" : {
+      "comment" : "Class = \"UITabBarItem\"; title = \"Home\"; ObjectID = \"73f-wh-yOB\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Home"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ana Sayfa"
+          }
+        }
+      }
+    },
+    "91c-NU-h6e.title" : {
+      "comment" : "Class = \"UITabBarItem\"; title = \"Completed\"; ObjectID = \"91c-NU-h6e\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Completed"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tamamlananlar"
+          }
+        }
+      }
+    },
+    "as0-3b-ej7.title" : {
+      "comment" : "Class = \"UINavigationItem\"; title = \"To Do List Home\"; ObjectID = \"as0-3b-ej7\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "To Do List Home"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To Do List Ana Sayfa"
+          }
+        }
+      }
+    },
+    "C3A-rq-V3p.placeholder" : {
+      "comment" : "Class = \"UITextField\"; placeholder = \"Edit task.\"; ObjectID = \"C3A-rq-V3p\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Edit task."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Görevi düzenle."
+          }
+        }
+      }
+    },
+    "dDP-9B-BOf.title" : {
+      "comment" : "Class = \"UIBarButtonItem\"; title = \"Add\"; ObjectID = \"dDP-9B-BOf\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Add"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ekle"
+          }
+        }
+      }
+    },
+    "E5O-O7-6YF.segmentTitles[0]" : {
+      "comment" : "Class = \"UISegmentedControl\"; E5O-O7-6YF.segmentTitles[0] = \"Low\"; ObjectID = \"E5O-O7-6YF\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Low"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Düşük"
+          }
+        }
+      }
+    },
+    "E5O-O7-6YF.segmentTitles[1]" : {
+      "comment" : "Class = \"UISegmentedControl\"; E5O-O7-6YF.segmentTitles[1] = \"Medium\"; ObjectID = \"E5O-O7-6YF\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Medium"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Orta"
+          }
+        }
+      }
+    },
+    "E5O-O7-6YF.segmentTitles[2]" : {
+      "comment" : "Class = \"UISegmentedControl\"; E5O-O7-6YF.segmentTitles[2] = \"High\"; ObjectID = \"E5O-O7-6YF\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "High"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yüksek"
+          }
+        }
+      }
+    },
+    "Eca-rY-TgL.placeholder" : {
+      "comment" : "Class = \"UITextField\"; placeholder = \"Enter task.\"; ObjectID = \"Eca-rY-TgL\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Enter task."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Görev girin."
+          }
+        }
+      }
+    },
+    "eOv-Qo-Olv.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Priority\"; ObjectID = \"eOv-Qo-Olv\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Priority"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Öncelik"
+          }
+        }
+      }
+    },
+    "GC9-xJ-yEb.title" : {
+      "comment" : "Class = \"UITabBarItem\"; title = \"Profil\"; ObjectID = \"GC9-xJ-yEb\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Profil"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profil"
+          }
+        }
+      }
+    },
+    "GWR-vO-eoS.segmentTitles[0]" : {
+      "comment" : "Class = \"UISegmentedControl\"; GWR-vO-eoS.segmentTitles[0] = \"Low\"; ObjectID = \"GWR-vO-eoS\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Low"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Düşük"
+          }
+        }
+      }
+    },
+    "GWR-vO-eoS.segmentTitles[1]" : {
+      "comment" : "Class = \"UISegmentedControl\"; GWR-vO-eoS.segmentTitles[1] = \"Medium\"; ObjectID = \"GWR-vO-eoS\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Medium"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Orta"
+          }
+        }
+      }
+    },
+    "GWR-vO-eoS.segmentTitles[2]" : {
+      "comment" : "Class = \"UISegmentedControl\"; GWR-vO-eoS.segmentTitles[2] = \"High\"; ObjectID = \"GWR-vO-eoS\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "High"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yüksek"
+          }
+        }
+      }
+    },
+    "HJR-BV-fsM.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Fav\"; ObjectID = \"HJR-BV-fsM\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Fav"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fav"
+          }
+        }
+      }
+    },
+    "hZA-xg-LKq.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Subtitle\"; ObjectID = \"hZA-xg-LKq\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Subtitle"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Subtitle"
+          }
+        }
+      }
+    },
+    "lIR-Tl-t5a.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Subtitle\"; ObjectID = \"lIR-Tl-t5a\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Subtitle"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Subtitle"
+          }
+        }
+      }
+    },
+    "mRt-12-8at.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Add Task\"; ObjectID = \"mRt-12-8at\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Add Task"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Görev Ekle"
+          }
+        }
+      }
+    },
+    "Oau-Ay-TKl.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Priority\"; ObjectID = \"Oau-Ay-TKl\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Priority"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Öncelik"
+          }
+        }
+      }
+    },
+    "OHW-H5-GlC.title" : {
+      "comment" : "Class = \"UINavigationItem\"; title = \"To Do List Completed\"; ObjectID = \"OHW-H5-GlC\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "To Do List Completed"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To Do List Tamamlananlar"
+          }
+        }
+      }
+    },
+    "qqm-tc-a4T.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Title\"; ObjectID = \"qqm-tc-a4T\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Title"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Başlık"
+          }
+        }
+      }
+    },
+    "SXn-6C-rsJ.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Due Date\"; ObjectID = \"SXn-6C-rsJ\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Due Date"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bitiş Tarihi"
+          }
+        }
+      }
+    },
+    "vw3-am-8Lx.title" : {
+      "comment" : "Class = \"UINavigationItem\"; title = \"To Do List Settings\"; ObjectID = \"vw3-am-8Lx\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "To Do List Settings"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To Do List Ayarlar"
+          }
+        }
+      }
+    },
+    "VYh-F0-BlK.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Edit Task\"; ObjectID = \"VYh-F0-BlK\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Edit Task"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Görevi Düzenle"
+          }
+        }
+      }
+    },
+    "Yia-16-gsf.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Done\"; ObjectID = \"Yia-16-gsf\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Done"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tamam"
+          }
+        }
+      }
+    },
+    "Zda-Pn-SKA.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Due Date\"; ObjectID = \"Zda-Pn-SKA\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Due Date"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bitiş Tarihi"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

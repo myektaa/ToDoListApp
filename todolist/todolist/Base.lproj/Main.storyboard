@@ -9,11 +9,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Ana Sayfa-->
+        <!--Home-->
         <scene sceneID="eyk-Cu-Cu4">
             <objects>
                 <navigationController id="57H-LB-kC3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Ana Sayfa" image="house.fill" catalog="system" id="73f-wh-yOB"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="73f-wh-yOB"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="dn6-qV-hBD">
                         <rect key="frame" x="0.0" y="124" width="402" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -53,14 +53,14 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5gz-A4-G8p">
                                                                 <rect key="frame" x="0.0" y="0.0" width="826" height="32"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hedef Ekle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VYh-F0-BlK">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="82.666666666666671" height="32"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Task" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VYh-F0-BlK">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="71" height="32"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Hedefi düzenleyin." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C3A-rq-V3p">
-                                                                        <rect key="frame" x="90.666666666666686" y="0.0" width="735.33333333333326" height="32"/>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Edit task." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C3A-rq-V3p">
+                                                                        <rect key="frame" x="79" y="0.0" width="747" height="32"/>
                                                                         <color key="backgroundColor" name="OG Background Color"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
@@ -76,19 +76,19 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lxZ-65-aMg">
                                                                 <rect key="frame" x="0.0" y="40" width="826" height="32"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Öncelik" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oau-Ay-TKl">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="82.666666666666671" height="32"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Priority" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oau-Ay-TKl">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="71" height="32"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="GWR-vO-eoS">
-                                                                        <rect key="frame" x="90.666666666666686" y="0.0" width="735.33333333333326" height="33"/>
+                                                                        <rect key="frame" x="79" y="0.0" width="747" height="33"/>
                                                                         <color key="backgroundColor" name="OG Background Color"/>
                                                                         <segments>
-                                                                            <segment title="Düşük"/>
-                                                                            <segment title="Orta"/>
-                                                                            <segment title="Yüksek"/>
+                                                                            <segment title="Low"/>
+                                                                            <segment title="Medium"/>
+                                                                            <segment title="High"/>
                                                                         </segments>
                                                                     </segmentedControl>
                                                                 </subviews>
@@ -96,14 +96,14 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hUm-Ti-vxZ">
                                                                 <rect key="frame" x="0.0" y="80" width="826" height="32"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="500" verticalHuggingPriority="251" text="Bitiş Tarihi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXn-6C-rsJ">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="82.666666666666671" height="32"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="500" verticalHuggingPriority="251" text="Due Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXn-6C-rsJ">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="71" height="32"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FxQ-zT-2td">
-                                                                        <rect key="frame" x="90.666666666666686" y="0.0" width="735.33333333333326" height="32"/>
+                                                                        <rect key="frame" x="79" y="0.0" width="747" height="32"/>
                                                                         <color key="backgroundColor" name="OG Background Color"/>
                                                                     </view>
                                                                 </subviews>
@@ -132,7 +132,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="858" height="604"/>
                                                         <color key="backgroundColor" name="OG Background Color"/>
                                                         <color key="tintColor" name="Date Color For To Do List"/>
-                                                        <locale key="locale" localeIdentifier="tr_TR"/>
+                                                        <locale key="locale" localeIdentifier="en_150"/>
                                                         <connections>
                                                             <action selector="datePickerChangedWithSender:" destination="hKW-6U-VLT" eventType="valueChanged" id="c1u-da-yAR"/>
                                                         </connections>
@@ -284,14 +284,14 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="TGk-9g-bIy">
                                                         <rect key="frame" x="0.0" y="0.0" width="354" height="32"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hedef Ekle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRt-12-8at">
-                                                                <rect key="frame" x="0.0" y="0.0" width="77.666666666666671" height="32"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Task" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRt-12-8at">
+                                                                <rect key="frame" x="0.0" y="0.0" width="71" height="32"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Hedef girin." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Eca-rY-TgL">
-                                                                <rect key="frame" x="85.666666666666657" y="0.0" width="268.33333333333337" height="32"/>
+                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter task." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Eca-rY-TgL">
+                                                                <rect key="frame" x="79" y="0.0" width="275" height="32"/>
                                                                 <color key="backgroundColor" name="OG Background Color"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -308,18 +308,18 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="T7c-oE-FiX">
                                                         <rect key="frame" x="0.0" y="40" width="354" height="32"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Öncelik" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOv-Qo-Olv">
-                                                                <rect key="frame" x="0.0" y="0.0" width="77.666666666666671" height="32"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Priority" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOv-Qo-Olv">
+                                                                <rect key="frame" x="0.0" y="0.0" width="71" height="32"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="E5O-O7-6YF">
-                                                                <rect key="frame" x="85.666666666666657" y="0.0" width="268.33333333333337" height="33"/>
+                                                                <rect key="frame" x="79" y="0.0" width="275" height="33"/>
                                                                 <segments>
-                                                                    <segment title="Düşük"/>
-                                                                    <segment title="Orta"/>
-                                                                    <segment title="Yüksek"/>
+                                                                    <segment title="Low"/>
+                                                                    <segment title="Medium"/>
+                                                                    <segment title="High"/>
                                                                 </segments>
                                                                 <connections>
                                                                     <action selector="segmentedControllerDidChange:" destination="hKW-6U-VLT" eventType="valueChanged" id="Ago-f1-u0t"/>
@@ -330,14 +330,14 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="w0F-9a-Dj3">
                                                         <rect key="frame" x="0.0" y="80" width="354" height="32"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="500" verticalHuggingPriority="251" text="Bitiş Tarihi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zda-Pn-SKA">
-                                                                <rect key="frame" x="0.0" y="0.0" width="77.666666666666671" height="32"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="500" verticalHuggingPriority="251" text="Due Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zda-Pn-SKA">
+                                                                <rect key="frame" x="0.0" y="0.0" width="71" height="32"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="orc-Lg-Wd2">
-                                                                <rect key="frame" x="85.666666666666657" y="0.0" width="268.33333333333337" height="32"/>
+                                                                <rect key="frame" x="79" y="0.0" width="275" height="32"/>
                                                                 <color key="backgroundColor" name="OG Background Color"/>
                                                             </view>
                                                         </subviews>
@@ -366,7 +366,7 @@
                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="br3-VD-Adu">
                                                 <rect key="frame" x="0.0" y="0.0" width="386" height="453"/>
                                                 <color key="tintColor" name="Date Color For To Do List"/>
-                                                <locale key="locale" localeIdentifier="tr_TR"/>
+                                                <locale key="locale" localeIdentifier="en_150"/>
                                                 <connections>
                                                     <action selector="datePickerChangedWithSender:" destination="hKW-6U-VLT" eventType="valueChanged" id="gAS-Fm-2pu"/>
                                                 </connections>
@@ -387,7 +387,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="ibB-JX-PG3">
-                        <barButtonItem key="rightBarButtonItem" title="Ekle" id="dDP-9B-BOf">
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="dDP-9B-BOf">
                             <connections>
                                 <segue destination="5L1-aO-KmK" kind="unwind" unwindAction="saveTaskButtonTappedWithSegue:" id="uw4-Eh-BAf"/>
                             </connections>
@@ -403,22 +403,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="akT-yQ-nq6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2750.7462686567164" y="-321.28146453089244"/>
-        </scene>
-        <!--Language View Controller-->
-        <scene sceneID="S4E-VM-dzi">
-            <objects>
-                <viewController id="AAk-3A-bDR" customClass="LanguageViewController" customModule="todolist" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="OgK-cA-5Je">
-                        <rect key="frame" x="0.0" y="0.0" width="402" height="802"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="oh7-yD-Qlk"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="hD3-My-tWd"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7oD-0s-1d9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3624" y="441"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="uO8-WZ-gRe">
@@ -440,11 +424,11 @@
             </objects>
             <point key="canvasLocation" x="-639" y="441"/>
         </scene>
-        <!--Tamamlananlar-->
+        <!--Completed-->
         <scene sceneID="Sf9-Ra-GZs">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uiE-1s-dSV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Tamamlananlar" image="checklist" catalog="system" id="91c-NU-h6e"/>
+                    <tabBarItem key="tabBarItem" title="Completed" image="checklist" catalog="system" id="91c-NU-h6e"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="zEg-Ta-Plg">
                         <rect key="frame" x="0.0" y="124" width="402" height="96"/>
@@ -581,7 +565,7 @@
             <objects>
                 <viewController storyboardIdentifier="ProfileViewController" id="qVx-vO-3Ru" customClass="ProfileViewController" customModule="todolist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LN8-Zs-aHW">
-                        <rect key="frame" x="0.0" y="0.0" width="402" height="802"/>
+                        <rect key="frame" x="0.0" y="0.0" width="402" height="874"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="NAW-aj-tOY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -589,7 +573,6 @@
                     <navigationItem key="navigationItem" title="To Do List Settings" id="vw3-am-8Lx"/>
                     <connections>
                         <segue destination="PGM-aE-fJk" kind="show" identifier="aboutSection" id="xIR-98-kWd"/>
-                        <segue destination="AAk-3A-bDR" kind="show" identifier="languageSection" id="zWn-cY-XOG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t8k-NV-WeQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -601,7 +584,7 @@
             <objects>
                 <viewController storyboardIdentifier="AboutViewController" id="PGM-aE-fJk" customClass="AboutVC" customModule="todolist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7fo-o5-mN7">
-                        <rect key="frame" x="0.0" y="0.0" width="402" height="802"/>
+                        <rect key="frame" x="0.0" y="0.0" width="402" height="874"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="K1Z-hA-DP2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -610,11 +593,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MoF-SX-YxR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3624" y="1181"/>
+            <point key="canvasLocation" x="3710" y="441"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="RJg-JB-Gfp"/>
+        <segue reference="EAd-fq-q4i"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="Back Color For To Do List"/>
     <resources>

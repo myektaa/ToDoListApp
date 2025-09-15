@@ -45,7 +45,7 @@ class CompletedController: UIViewController {
         func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
             switch section{
             case 0:
-                return "Tamamlanan Görevler"
+                return NSLocalizedString("COMPLETED_TASKS_IN_COMPLETED", comment: "Completed Tasks in completed section")
             default:
                 return nil
             }

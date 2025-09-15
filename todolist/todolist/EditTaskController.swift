@@ -31,7 +31,7 @@ class EditTaskController: UIViewController {
         button.configuration?.imagePlacement = .leading
         button.configuration?.preferredSymbolConfigurationForImage = UIImage.SymbolConfiguration(pointSize: 15, weight: .medium)
         
-        button.setTitle("Kaydet", for: .normal)
+        button.setTitle(NSLocalizedString("SAVE_BUTTON_IN_EDIT", comment: "Save button in edit section"), for: .normal)
         button.clipsToBounds = true
          
         return button

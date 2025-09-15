@@ -33,7 +33,7 @@ class SwitchCell: UITableViewCell{
     
     public let mySwitch: UISwitch = {
        let mySwitch = UISwitch()
-        mySwitch.onTintColor = .systemBlue
+        mySwitch.onTintColor = .systemRed
         mySwitch.setOn(false, animated: true)
         return mySwitch
     }()

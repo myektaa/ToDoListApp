@@ -61,6 +61,23 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         ])
     }
     
+    private let titleLabel = {
+       let title = UILabel()
+        title.text = NSLocalizedString("BIG_SETTINGS_TITLE", comment: "Big settings title in settings")
+        title.textColor = .black
+        title.font = .systemFont(ofSize: 30, weight: .bold)
+        return title
+    }()
+    
+    private func titleConstraints(){
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
+            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+        ])
+    }
+    
     private let settingsTableView = {
        let tableView = UITableView()
         tableView.register(SettingsCell.self, forCellReuseIdentifier: SettingsCell.identifier)
@@ -108,10 +125,10 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         switch type.self {
         case .staticCell(let model):
             model.handler()
-            if model.title == "Hakkında" {
+            if model.title == "About" {
                 performSegue(withIdentifier: "aboutSection", sender: self)
-            } else if model.title == "Dil" {
-                performSegue(withIdentifier: "languageSection", sender: self)
+            } else if model.title == "Language" {
+                changeLanguage()
             }
         case .switchCell(let model):
             model.handler()
@@ -119,17 +136,23 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         
     }
     
+    func changeLanguage() {
+        if let url = URL(string: UIApplication.openSettingsURLString) {
+            UIApplication.shared.open(url)
+        }
+    }
+    
     func tableViewConfigure(){
-        models.append(Section(title: "Genel", options: [
-            .switchCell(model: SettingsSwitchOption(title: "Mod", icon: UIImage(systemName: "sun.max.fill"), iconBackgroundColor: .systemFill, handler: {
+        models.append(Section(title: NSLocalizedString("SETTINGS_GENERAL_TITLE", comment: "General big title in settings"), options: [
+            .switchCell(model: SettingsSwitchOption(title: NSLocalizedString("SETTINGS_MODE_TITLE", comment: "Mode title in settings"), icon: UIImage(systemName: "sun.max.fill"), iconBackgroundColor: .systemFill, handler: {
             }, isOn: true)),
-            .staticCell(model: SettingsOption(title: "Dil", icon: UIImage(systemName: "globe"), iconBackgroundColor: .systemBlue) {
+            .staticCell(model: SettingsOption(title: NSLocalizedString("SETTINGS_LANGUAGE_TITLE", comment: "Language title in settings"), icon: UIImage(systemName: "globe"), iconBackgroundColor: .systemGreen) {
             })
         ]))
-        models.append(Section(title: "Hakımızda", options: [
-            .staticCell(model: SettingsOption(title: "Hakkında", icon: UIImage(systemName: "info.circle"), iconBackgroundColor: .systemBlue) {
+        models.append(Section(title: NSLocalizedString("SETTINGS_ABOUTUS_TITLE", comment: "About Us title in settings"), options: [
+            .staticCell(model: SettingsOption(title: NSLocalizedString("SETTINGS_ABOUT_TITLE", comment: "About title in settings"), icon: UIImage(systemName: "info.circle"), iconBackgroundColor: .systemBlue) {
             }),
-            .staticCell(model: SettingsOption(title: "Uygulamayı Puanlayın", icon: UIImage(systemName: "medal.star"), iconBackgroundColor: .systemYellow) {
+            .staticCell(model: SettingsOption(title: NSLocalizedString("SETTINGS_RATETHEAPP_TITLE", comment: "Rate the App title in settings"), icon: UIImage(systemName: "medal.star"), iconBackgroundColor: .systemYellow) {
             })
         ]))
     }
@@ -162,9 +185,11 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         view.addSubview(cancelButton)
         view.addSubview(settingsTableView)
+        view.addSubview(titleLabel)
         tableViewConfigure()
         tvConstraints()
         cancelSetupConstraints()
+        titleConstraints()
         
     }
     

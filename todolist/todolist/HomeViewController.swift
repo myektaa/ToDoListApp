@@ -237,7 +237,16 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDelegate {
     
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        let task = self.taskToOperate(for: indexPath)
+        
+        if task.name.count > 100 {
+            return UITableView.automaticDimension
+        } else {
+            return 90.0
+        }
+    }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
