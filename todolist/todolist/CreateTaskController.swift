@@ -39,6 +39,17 @@ class CreateTaskController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tapGesture.cancelsTouchesInView = false
         view.addGestureRecognizer(tapGesture)
+        updateDatePickerLanguage()
+    }
+    
+    func updateDatePickerLanguage() {
+        let appLanguage = Bundle.main.preferredLocalizations.first ?? "en"
+        
+        if appLanguage.starts(with: "tr") {
+            datePicker.locale = Locale(identifier: "tr_TR")
+        } else {
+            datePicker.locale = Locale(identifier: "en_US")
+        }
     }
     
     @objc private func dismissKeyboard(){

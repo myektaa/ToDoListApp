@@ -125,9 +125,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         switch type.self {
         case .staticCell(let model):
             model.handler()
-            if model.title == "About" {
+            if model.title == "Hakkında" || model.title == "About" {
                 performSegue(withIdentifier: "aboutSection", sender: self)
-            } else if model.title == "Language" {
+            } else if model.title == "Dil" || model.title == "Language" {
                 changeLanguage()
             }
         case .switchCell(let model):

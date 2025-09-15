@@ -69,6 +69,40 @@
         }
       }
     },
+    "COMPLETED_TASKS_TITLE" : {
+      "comment" : "Completed tasks section title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Completed Tasks"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tamamlanan Görevler"
+          }
+        }
+      }
+    },
+    "FAVORITE_TASKS_TITLE" : {
+      "comment" : "Favorite tasks section title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Favorite Tasks"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Favori Görevler"
+          }
+        }
+      }
+    },
     "SAVE_BUTTON_IN_EDIT" : {
       "comment" : "Save button in edit section",
       "localizations" : {
@@ -184,6 +218,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Uygulamayı Puanlayın"
+          }
+        }
+      }
+    },
+    "TASKS_TITLE" : {
+      "comment" : "Tasks section title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tasks"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Görevler"
           }
         }
       }

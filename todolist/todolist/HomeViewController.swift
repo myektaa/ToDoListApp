@@ -166,11 +166,11 @@ class HomeViewController: UIViewController {
         func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
             switch section{
             case 0:
-                return "Favori Görevler"
+                return NSLocalizedString("FAVORITE_TASKS_TITLE", comment: "Favorite tasks section title")
             case 1:
-                return "Görevler"
+                return NSLocalizedString("TASKS_TITLE", comment: "Tasks section title")
             case 2:
-                return "Tamamlanan Görevler"
+                return NSLocalizedString("COMPLETED_TASKS_TITLE", comment: "Completed tasks section title")
             default:
                 return nil
             }
@@ -178,7 +178,7 @@ class HomeViewController: UIViewController {
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let formatter = DateFormatter()
-            formatter.locale = Locale(identifier: "tr_TR")
+//            formatter.locale = Locale(identifier: "tr_TR")
             formatter.dateStyle = .medium
             formatter.timeStyle = .short
             
@@ -237,20 +237,20 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        let task = self.taskToOperate(for: indexPath)
-        
-        if task.name.count > 100 {
-            return UITableView.automaticDimension
-        } else {
-            return 90.0
-        }
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        
+//        let task = self.taskToOperate(for: indexPath)
+//        
+//        if task.name.count > 100 {
+//            return UITableView.automaticDimension
+//        } else {
+//            return 90.0
+//        }
+//    }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        let deleteAction = UIContextualAction(style: .normal, title: "Sil")
+        let deleteAction = UIContextualAction(style: .normal, title: "")
         { (action, view, completion) in
             let task = self.taskToOperate(for: indexPath)
             do {
@@ -267,7 +267,7 @@ extension HomeViewController: UITableViewDelegate {
         deleteAction.backgroundColor = .systemBackground
         deleteAction.backgroundColor = .init(named: "OG Background Color")
         
-        let editAction = UIContextualAction(style: .normal, title: "Düzenle")
+        let editAction = UIContextualAction(style: .normal, title: "")
         { (action, view, completion) in
             self.performSegue(withIdentifier: "listToEdit", sender: indexPath)
         }
@@ -281,7 +281,7 @@ extension HomeViewController: UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        let favoriAction = UIContextualAction(style: .normal, title: "Favori") { (action, view, completion) in
+        let favoriAction = UIContextualAction(style: .normal, title: "") { (action, view, completion) in
             var task = self.taskToOperate(for: indexPath)
             task.isFavorited.toggle()
             do {
@@ -306,7 +306,7 @@ extension HomeViewController: UITableViewDelegate {
         favoriAction.backgroundColor = .init(named: "OG Background Color")
 
         
-        let finishAction = UIContextualAction(style: .normal, title: "Tamamlandı") { (action, view, completion) in
+        let finishAction = UIContextualAction(style: .normal, title: "") { (action, view, completion) in
             var task = self.taskToOperate(for: indexPath)
             task.isCompleted.toggle()
             do {
