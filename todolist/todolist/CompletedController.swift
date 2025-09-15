@@ -45,7 +45,7 @@ class CompletedController: UIViewController {
         func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
             switch section{
             case 0:
-                return "Biten Görevler"
+                return "Tamamlanan Görevler"
             default:
                 return nil
             }

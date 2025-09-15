@@ -170,7 +170,7 @@ class HomeViewController: UIViewController {
             case 1:
                 return "Görevler"
             case 2:
-                return "Biten Görevler"
+                return "Tamamlanan Görevler"
             default:
                 return nil
             }
@@ -241,7 +241,7 @@ extension HomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        let deleteAction = UIContextualAction(style: .normal, title: nil)
+        let deleteAction = UIContextualAction(style: .normal, title: "Sil")
         { (action, view, completion) in
             let task = self.taskToOperate(for: indexPath)
             do {
@@ -258,7 +258,7 @@ extension HomeViewController: UITableViewDelegate {
         deleteAction.backgroundColor = .systemBackground
         deleteAction.backgroundColor = .init(named: "OG Background Color")
         
-        let editAction = UIContextualAction(style: .normal, title: nil)
+        let editAction = UIContextualAction(style: .normal, title: "Düzenle")
         { (action, view, completion) in
             self.performSegue(withIdentifier: "listToEdit", sender: indexPath)
         }
@@ -272,7 +272,7 @@ extension HomeViewController: UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        let favoriAction = UIContextualAction(style: .normal, title: nil) { (action, view, completion) in
+        let favoriAction = UIContextualAction(style: .normal, title: "Favori") { (action, view, completion) in
             var task = self.taskToOperate(for: indexPath)
             task.isFavorited.toggle()
             do {
@@ -297,7 +297,7 @@ extension HomeViewController: UITableViewDelegate {
         favoriAction.backgroundColor = .init(named: "OG Background Color")
 
         
-        let finishAction = UIContextualAction(style: .normal, title: nil) { (action, view, completion) in
+        let finishAction = UIContextualAction(style: .normal, title: "Tamamlandı") { (action, view, completion) in
             var task = self.taskToOperate(for: indexPath)
             task.isCompleted.toggle()
             do {

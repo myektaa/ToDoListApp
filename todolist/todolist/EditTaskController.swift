@@ -53,8 +53,20 @@ class EditTaskController: UIViewController {
         for (index, priority) in Task.TaskPriority.allCases.enumerated() {
             editPriority.insertSegment(withTitle: priority.name, at: index, animated: false)
         }
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGesture)
     }
     
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+            super.viewDidAppear(animated)
+            editField.becomeFirstResponder()
+        }
     
     private func setupConstraints() {
         saveButton.translatesAutoresizingMaskIntoConstraints = false

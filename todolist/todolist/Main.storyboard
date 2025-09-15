@@ -210,7 +210,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fav" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJR-BV-fsM">
-                                                    <rect key="frame" x="338" y="24" width="28" height="22"/>
+                                                    <rect key="frame" x="338" y="24" width="28" height="22.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -363,7 +363,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="248" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="NWu-o1-Saq">
                                         <rect key="frame" x="0.0" y="120" width="386" height="453"/>
                                         <subviews>
-                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="br3-VD-Adu">
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="br3-VD-Adu">
                                                 <rect key="frame" x="0.0" y="0.0" width="386" height="453"/>
                                                 <color key="tintColor" name="Date Color For To Do List"/>
                                                 <locale key="locale" localeIdentifier="tr_TR"/>
@@ -565,20 +565,39 @@
             <objects>
                 <viewController storyboardIdentifier="ProfileViewController" id="qVx-vO-3Ru" customClass="ProfileViewController" customModule="todolist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LN8-Zs-aHW">
-                        <rect key="frame" x="0.0" y="0.0" width="402" height="874"/>
+                        <rect key="frame" x="0.0" y="0.0" width="402" height="802"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="NAW-aj-tOY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="To Do List Settings" id="vw3-am-8Lx"/>
+                    <connections>
+                        <segue destination="PGM-aE-fJk" kind="show" identifier="aboutSection" id="xIR-98-kWd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t8k-NV-WeQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2751" y="441"/>
         </scene>
+        <!--AboutVC-->
+        <scene sceneID="ep3-vY-Xnm">
+            <objects>
+                <viewController storyboardIdentifier="aboutVC" id="PGM-aE-fJk" customClass="AboutVC" customModule="todolist" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7fo-o5-mN7">
+                        <rect key="frame" x="0.0" y="0.0" width="402" height="802"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="K1Z-hA-DP2"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="akl-Pg-1w5"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MoF-SX-YxR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3800" y="441"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="EAd-fq-q4i"/>
+        <segue reference="RJg-JB-Gfp"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="Back Color For To Do List"/>
     <resources>

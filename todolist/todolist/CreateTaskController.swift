@@ -15,22 +15,34 @@ class CreateTaskController: UIViewController {
     
     var task: Task?
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        taskTextField.becomeFirstResponder()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         taskTextField.delegate = self
         self.view.backgroundColor = .init(named: "OG Background Color")
-
+        
         //Default value for task
         task = Task(
             date: Date(),
             name: String(),
             priority: .high
-            )
+        )
         
         task?.priority = Task.TaskPriority(rawValue: prioritySection.selectedSegmentIndex) ?? .medium
         taskTextField.addTarget(self, action: #selector(taskTextFieldDidChange(_:)), for: .editingChanged)
-
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc private func dismissKeyboard(){
+        view.endEditing(true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -45,6 +57,7 @@ class CreateTaskController: UIViewController {
     }
     
     @IBAction func segmentedControllerDidChange(_ sender: Any) {
+        view.endEditing(true)
         task?.priority = Task.TaskPriority(rawValue: prioritySection.selectedSegmentIndex) ?? .medium
     }
     @objc func taskTextFieldDidChange(_ textField:UITextField){

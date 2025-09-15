@@ -88,6 +88,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 return UITableViewCell()
             }
             cell.configure(with: model)
+            cell.selectionStyle = .none
             cell.mySwitch.addTarget(self, action: #selector(switchChanged(_:)), for: .valueChanged)
             return cell
         }
@@ -107,9 +108,13 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         switch type.self {
         case .staticCell(let model):
             model.handler()
+            if model.title == "Hakkında" {
+                performSegue(withIdentifier: "aboutSection", sender: self)
+            }
         case .switchCell(let model):
             model.handler()
         }
+        
     }
     
     func tableViewConfigure(){
