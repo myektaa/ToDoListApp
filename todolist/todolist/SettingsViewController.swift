@@ -107,8 +107,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             cell.configure(with: model)
             cell.selectionStyle = .none
             cell.mySwitch.addTarget(self, action: #selector(switchChanged(_:)), for: .valueChanged)
-            cell.mySwitch.isOn = UserDefaults.standard.bool(forKey: "isDarkMode")
-            
+            let isDark = UserDefaults.standard.object(forKey: "isDarkMode") as? Bool ?? false
+            cell.mySwitch.isOn = isDark
             return cell
         }
     }

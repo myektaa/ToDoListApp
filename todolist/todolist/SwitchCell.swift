@@ -81,9 +81,6 @@ class SwitchCell: UITableViewCell{
             height: contentView.frame.height
         )
     }
-    
-    
-    
     override func prepareForReuse() {
         super.prepareForReuse()
         iconImageView.image = nil
