@@ -107,6 +107,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             cell.configure(with: model)
             cell.selectionStyle = .none
             cell.mySwitch.addTarget(self, action: #selector(switchChanged(_:)), for: .valueChanged)
+            cell.mySwitch.isOn = UserDefaults.standard.bool(forKey: "isDarkMode")
             
             return cell
         }
@@ -114,6 +115,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBAction func switchChanged(_ sender: UISwitch) {
         guard let window = UIApplication.shared.windows.first else { return }
+            
+        UserDefaults.standard.set(sender.isOn, forKey: "isDarkMode")
+        
         UIView.animate(withDuration: 5) {
             window.overrideUserInterfaceStyle = sender.isOn ? .dark : .light
         }
@@ -182,7 +186,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.view.backgroundColor = .init(named: "OG Background Color")
         settingsTableView.delegate = self
         settingsTableView.dataSource = self
-        
         view.addSubview(cancelButton)
         view.addSubview(settingsTableView)
         view.addSubview(titleLabel)
