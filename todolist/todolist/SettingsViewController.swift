@@ -64,7 +64,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     private let titleLabel = {
        let title = UILabel()
         title.text = NSLocalizedString("BIG_SETTINGS_TITLE", comment: "Big settings title in settings")
-        title.textColor = .black
+        title.textColor = .init(named: "Text Color For To Do List")
         title.font = .systemFont(ofSize: 30, weight: .bold)
         return title
     }()

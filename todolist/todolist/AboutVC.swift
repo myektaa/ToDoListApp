@@ -53,7 +53,7 @@ class AboutVC: UIViewController {
     private let titleLabel = {
        let title = UILabel()
         title.text = NSLocalizedString("ABOUT_SECTION_TITLE", comment: "About title in about section")
-        title.textColor = .black
+        title.textColor = .init(named: "Text Color For To Do List")
         title.font = .systemFont(ofSize: 30, weight: .bold)
         return title
     }()
@@ -70,7 +70,7 @@ class AboutVC: UIViewController {
     private let captionLabel = {
         let caption = UILabel()
         caption.text = NSLocalizedString("ABOUT_CAPTION", comment: "About caption")
-        caption.textColor = .black
+        caption.textColor = .init(named: "Text Color For To Do List")
         caption.font = .systemFont(ofSize: 16, weight: .regular)
         caption.numberOfLines = 0
         return caption
