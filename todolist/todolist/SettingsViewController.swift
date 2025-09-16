@@ -118,7 +118,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             
         UserDefaults.standard.set(sender.isOn, forKey: "isDarkMode")
         
-        UIView.animate(withDuration: 5) {
+        UIView.animate(withDuration: 0.3) {
             window.overrideUserInterfaceStyle = sender.isOn ? .dark : .light
         }
     }
@@ -149,7 +149,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableViewConfigure(){
         models.append(Section(title: NSLocalizedString("SETTINGS_GENERAL_TITLE", comment: "General big title in settings"), options: [
             .switchCell(model: SettingsSwitchOption(title: NSLocalizedString("SETTINGS_MODE_TITLE", comment: "Mode title in settings"), icon: UIImage(systemName: "sun.max.fill"), iconBackgroundColor: .systemFill, handler: {
-            }, isOn: true)),
+            }, isOn: false)),
             .staticCell(model: SettingsOption(title: NSLocalizedString("SETTINGS_LANGUAGE_TITLE", comment: "Language title in settings"), icon: UIImage(systemName: "globe"), iconBackgroundColor: .systemGreen) {
             })
         ]))
