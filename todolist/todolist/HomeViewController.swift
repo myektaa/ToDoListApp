@@ -118,6 +118,13 @@ class HomeViewController: UIViewController {
             fatalError("CreateTaskController'a ulaşılmaya çalışırken hata oluştu.")
         }
         
+        if createdTask.name.trimmingCharacters(in: .whitespaces).isEmpty {
+            let alert = UIAlertController(title: NSLocalizedString("TASK_ALERT_TITLE", comment: "Alert title"), message: NSLocalizedString("TASK_ALERT_MESSAGE", comment: "Alert Message"), preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("TASK_OK_BUTTON", comment: "Task Ok Button"), style: .default))
+                createTaskController.present(alert, animated: true)
+                return
+            }
+        
         store.addTask(task: createdTask)
         
         //Create indexPath to be inserted to tableview
@@ -131,12 +138,19 @@ class HomeViewController: UIViewController {
     @IBAction func updateTaskButtonTapped(segue: UIStoryboardSegue) {
         print("Görev Düzenleniyor...")
         
-        guard let editTaskController = segue.source as? EditTaskController,
-              let editTask = editTaskController.task,
+        guard let editTaskController = segue.source as? EditTaskController, let editTask = editTaskController.task,
               editTaskController.editedIndexPath != nil else {
             fatalError("EditTaskController'a ulaşılmaya çalışırken hata oluştu.")
         }
         
+        if editTask.name.trimmingCharacters(in: .whitespaces).isEmpty {
+            let alert = UIAlertController(title: NSLocalizedString("TASK_ALERT_TITLE", comment: "Alert title"), message: NSLocalizedString("TASK_ALERT_MESSAGE", comment: "Alert Message"), preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("TASK_OK_BUTTON", comment: "Task Ok Button"), style: .default))
+                editTaskController.present(alert, animated: true)
+                return
+            }
+        
+                
         do {
             try store.updateTask(newTask: editTask)
             

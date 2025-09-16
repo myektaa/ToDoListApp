@@ -222,6 +222,57 @@
         }
       }
     },
+    "TASK_ALERT_MESSAGE" : {
+      "comment" : "Alert Message",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Task name cannot be empty. Please fill it in."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Görev alanı boş olamaz, lütfen doldurun."
+          }
+        }
+      }
+    },
+    "TASK_ALERT_TITLE" : {
+      "comment" : "Alert title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alert"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uyarı"
+          }
+        }
+      }
+    },
+    "TASK_OK_BUTTON" : {
+      "comment" : "Task Ok Button",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ok"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tamam"
+          }
+        }
+      }
+    },
     "TASKS_TITLE" : {
       "comment" : "Tasks section title",
       "localizations" : {
