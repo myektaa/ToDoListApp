@@ -107,13 +107,13 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             cell.configure(with: model)
             cell.selectionStyle = .none
             cell.mySwitch.addTarget(self, action: #selector(switchChanged(_:)), for: .valueChanged)
+            
             return cell
         }
     }
     
     @IBAction func switchChanged(_ sender: UISwitch) {
         guard let window = UIApplication.shared.windows.first else { return }
-
         UIView.animate(withDuration: 5) {
             window.overrideUserInterfaceStyle = sender.isOn ? .dark : .light
         }

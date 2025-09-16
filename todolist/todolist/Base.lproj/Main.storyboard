@@ -565,7 +565,7 @@
             <objects>
                 <viewController storyboardIdentifier="ProfileViewController" id="qVx-vO-3Ru" customClass="ProfileViewController" customModule="todolist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LN8-Zs-aHW">
-                        <rect key="frame" x="0.0" y="0.0" width="402" height="874"/>
+                        <rect key="frame" x="0.0" y="0.0" width="402" height="802"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="NAW-aj-tOY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -584,7 +584,7 @@
             <objects>
                 <viewController storyboardIdentifier="AboutViewController" id="PGM-aE-fJk" customClass="AboutVC" customModule="todolist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7fo-o5-mN7">
-                        <rect key="frame" x="0.0" y="0.0" width="402" height="874"/>
+                        <rect key="frame" x="0.0" y="0.0" width="402" height="802"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="K1Z-hA-DP2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -597,7 +597,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="EAd-fq-q4i"/>
+        <segue reference="RJg-JB-Gfp"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="Back Color For To Do List"/>
     <resources>

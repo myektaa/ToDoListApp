@@ -14,8 +14,9 @@ class HomeViewController: UIViewController {
     var checked = false
     var done = false
     
-    private let buttonSize = CGFloat(60)
+    private var models = [ToDoListItem]()
     
+    private let buttonSize = CGFloat(60)
     
     @IBOutlet weak var tableView: UITableView!
 
@@ -40,6 +41,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        getAllItems()
         
         self.view.backgroundColor = .init(named: "OG Background Color")
         self.tableView.backgroundColor = .init(named: "OG Backgronund Color")
@@ -143,6 +145,55 @@ class HomeViewController: UIViewController {
             print("Düzenleniyor")
         } catch let error {
             print(error)
+        }
+    }
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    func getAllItems(){
+        do {
+            models = try context.fetch(ToDoListItem.fetchRequest())
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        } catch {
+            
+        }
+    }
+    
+    func createItems(name:String){
+        let newItem = ToDoListItem(context: context)
+        newItem.name = name
+        newItem.date = Date()
+        newItem.priority = 0
+        
+        do {
+            try context.save()
+            getAllItems()
+        } catch {
+            
+        }
+    }
+    
+    func deleteItems(item: ToDoListItem){
+        context.delete(item)
+        
+        do {
+            try context.save()
+            getAllItems()
+        } catch {
+            
+        }
+    }
+    
+    func updateItems(item: ToDoListItem, newName: String){
+        item.name = newName
+        
+        do {
+            try context.save()
+            getAllItems()
+        } catch {
+            
         }
     }
 
