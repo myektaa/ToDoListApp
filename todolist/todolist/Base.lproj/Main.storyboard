@@ -168,7 +168,7 @@
             </objects>
             <point key="canvasLocation" x="1680.5970149253731" y="-1104.5766590389014"/>
         </scene>
-        <!--To Do List Home-->
+        <!--ToDoly-->
         <scene sceneID="tUJ-4q-EKl">
             <objects>
                 <viewController storyboardIdentifier="HomeViewController" id="xdF-DA-XVZ" customClass="HomeViewController" customModule="todolist" customModuleProvider="target" sceneMemberID="viewController">
@@ -251,7 +251,7 @@
                             <constraint firstItem="mlt-pd-56e" firstAttribute="trailing" secondItem="Nko-0L-Q4v" secondAttribute="trailing" constant="8" id="pcf-Oq-RvW"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="To Do List Home" id="as0-3b-ej7"/>
+                    <navigationItem key="navigationItem" title="ToDoly" id="as0-3b-ej7"/>
                     <connections>
                         <outlet property="tableView" destination="Nko-0L-Q4v" id="vr2-Ao-BgZ"/>
                         <segue destination="hKW-6U-VLT" kind="show" identifier="listToDetail" id="9J7-6s-fep"/>
@@ -446,7 +446,7 @@
             </objects>
             <point key="canvasLocation" x="569" y="441"/>
         </scene>
-        <!--To Do List Completed-->
+        <!--ToDoly Completed-->
         <scene sceneID="s6H-UX-4Xf">
             <objects>
                 <viewController storyboardIdentifier="CompletedController" id="hni-Zj-sqi" customClass="CompletedController" customModule="todolist" customModuleProvider="target" sceneMemberID="viewController">
@@ -529,7 +529,7 @@
                             <constraint firstItem="X7l-Em-iAP" firstAttribute="bottom" secondItem="VzZ-6d-kCG" secondAttribute="bottom" constant="10" id="tCm-rA-xdF"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="To Do List Completed" id="OHW-H5-GlC"/>
+                    <navigationItem key="navigationItem" title="ToDoly Completed" id="OHW-H5-GlC"/>
                     <connections>
                         <outlet property="doneTableView" destination="VzZ-6d-kCG" id="5GB-XB-S8Z"/>
                     </connections>

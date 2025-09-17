@@ -56,19 +56,19 @@
       }
     },
     "as0-3b-ej7.title" : {
-      "comment" : "Class = \"UINavigationItem\"; title = \"To Do List Home\"; ObjectID = \"as0-3b-ej7\";",
+      "comment" : "Class = \"UINavigationItem\"; title = \"ToDoly\"; ObjectID = \"as0-3b-ej7\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "To Do List Home"
+            "value" : "ToDoly"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "To Do List Ana Sayfa"
+            "value" : "ToDoly"
           }
         }
       }
@@ -362,19 +362,19 @@
       }
     },
     "OHW-H5-GlC.title" : {
-      "comment" : "Class = \"UINavigationItem\"; title = \"To Do List Completed\"; ObjectID = \"OHW-H5-GlC\";",
+      "comment" : "Class = \"UINavigationItem\"; title = \"ToDoly Completed\"; ObjectID = \"OHW-H5-GlC\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "To Do List Completed"
+            "value" : "ToDoly Completed"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "To Do List Tamamlananlar"
+            "value" : "ToDoly Tamamlananlar"
           }
         }
       }
