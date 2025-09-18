@@ -64,7 +64,7 @@ class CompletedController: UIViewController {
 
             doneCell.doneLabel.numberOfLines = 0
             doneCell.doneLabel?.text = tasks.name
-            doneCell.doneDateLabel?.text = formatter.string(from: tasks.date)
+            doneCell.doneDateLabel?.text = formatter.string(from: tasks.date ?? Date())
             doneCell.markLabel?.text = "✅"
             
             return doneCell
@@ -75,7 +75,7 @@ class CompletedController: UIViewController {
                 if indexPath.section == 0 {
                     let task = store.completedTasks[indexPath.row]
                     do {
-                        try store.removeTask(withUUID: task.uuid)
+                        try store.removeTask(withItem: task)
                         doneTableView.deleteRows(at: [indexPath], with: .automatic)
                     } catch let error {
                         print(error)
@@ -97,7 +97,7 @@ extension CompletedController: UITableViewDelegate {
             if indexPath.section == 0 {
                 let task = self.store.completedTasks[indexPath.row]
                 do {
-                    try self.store.removeTask(withUUID: task.uuid)
+                    try self.store.removeTask(withItem: task)
                 } catch let error {
                     print(error)
                 }

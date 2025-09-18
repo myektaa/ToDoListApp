@@ -33,7 +33,7 @@ class EditTaskController: UIViewController {
         
         button.setTitle(NSLocalizedString("SAVE_BUTTON_IN_EDIT", comment: "Save button in edit section"), for: .normal)
         button.clipsToBounds = true
-         
+        
         return button
     }()
     
@@ -44,14 +44,25 @@ class EditTaskController: UIViewController {
         setupAction()
         setupConstraints()
         editPriority.removeAllSegments()
-                        
+        
         self.view.backgroundColor = .init(named: "OG Background Color")
-
+        
         editField.delegate = self
         editField.addTarget(self, action: #selector(editFieldDidChange(_:)), for: .editingChanged)
-
-        for (index, priority) in Task.TaskPriority.allCases.enumerated() {
-            editPriority.insertSegment(withTitle: priority.name, at: index, animated: false)
+        
+        var title: String
+        
+        
+        for (index) in 0..<3 {
+            switch index {
+            case 0:
+                title = NSLocalizedString("LOW_PRIORITY", comment: "Low priority")
+            case 1:
+                title = NSLocalizedString("MEDIUM_PRIORITY", comment: "Medium priority")
+            default:
+                title = NSLocalizedString("HIGH_PRIORITY", comment: "High priority")
+            }
+            editPriority.insertSegment(withTitle: title, at: index, animated: false)
         }
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
@@ -64,21 +75,21 @@ class EditTaskController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-            super.viewDidAppear(animated)
-            editField.becomeFirstResponder()
-        }
+        super.viewDidAppear(animated)
+        editField.becomeFirstResponder()
+    }
     
     private func setupConstraints() {
         saveButton.translatesAutoresizingMaskIntoConstraints = false
         let trailingAnchor = saveButton.trailingAnchor.constraint(greaterThanOrEqualTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 8)
         trailingAnchor.priority = .defaultLow
         NSLayoutConstraint.activate([
-        saveButton.heightAnchor.constraint(equalToConstant: buttonSize),
-        saveButton.widthAnchor.constraint(greaterThanOrEqualToConstant: 120),
-        saveButton.leadingAnchor.constraint(greaterThanOrEqualTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
-        trailingAnchor,
-        saveButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-        saveButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor , constant: -60)
+            saveButton.heightAnchor.constraint(equalToConstant: buttonSize),
+            saveButton.widthAnchor.constraint(greaterThanOrEqualToConstant: 120),
+            saveButton.leadingAnchor.constraint(greaterThanOrEqualTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
+            trailingAnchor,
+            saveButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            saveButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor , constant: -60)
         ])
     }
     
@@ -89,23 +100,28 @@ class EditTaskController: UIViewController {
     @objc private func kaydet(){
         task.name = editField.text ?? "Görev adı yok."
         task.date = editDatePicker.date
-        task.priority = Task.TaskPriority(rawValue: editPriority.selectedSegmentIndex) ?? .medium
+        task.priority = Int16(editPriority.selectedSegmentIndex)
         performSegue(withIdentifier: "updateTaskButtonTappedWithSegue", sender: nil)
         print("Save Button")
     }
     
     @objc private func editFieldDidChange(_ textField: UITextField) {
         task.name = textField.text ?? "Görev adı yok."
+        saveButton.isEnabled = !(textField.text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ?? true)
+        saveButton.alpha = saveButton.isEnabled ? 1.0 : 0.5
     }
     
-    var task: Task!
+    var task: ToDoListItem!
     var editedIndexPath: IndexPath?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         editField.text = task.name
-        editPriority.selectedSegmentIndex = task.priority.rawValue
-        editDatePicker.date = task.date
+        editPriority.selectedSegmentIndex = Int(task.priority)
+        editDatePicker.date = task.date ?? Date()
+        
+        saveButton.isEnabled = !(editField.text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ?? true)
+        saveButton.alpha = saveButton.isEnabled ? 1.0 : 0.5
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -123,19 +139,19 @@ extension EditTaskController: UITextFieldDelegate {
         //Update task's name
         task?.name = textField.text ?? "Görev adı yok."
         return true
-}
+    }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         task?.name = textField.text ?? "Görev adı yok."
     }
 }
 
-@available(iOS 17.0, *)
-#Preview {
-    
-    let storyboards = UIStoryboard(name: "Main", bundle: nil)
-    
-    let editController = storyboards.instantiateViewController(withIdentifier: "EditTaskController") as! EditTaskController
-    editController.task = Task.sampleTask
-    return editController
-}
+//@available(iOS 17.0, *)
+//#Preview {
+//
+//    let storyboards = UIStoryboard(name: "Main", bundle: nil)
+//
+//    let editController = storyboards.instantiateViewController(withIdentifier: "EditTaskController") as! EditTaskController
+//    editController.task = Task.sampleTask
+//    return editController
+//}

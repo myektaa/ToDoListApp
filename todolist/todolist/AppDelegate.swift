@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "ToDoListCoreData")
+        let container = NSPersistentContainer(name: "ToDoListItem")
         container.loadPersistentStores(completionHandler: { (description, error) in
             if let error = error as NSError?{
                 fatalError()

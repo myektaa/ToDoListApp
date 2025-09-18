@@ -5,52 +5,86 @@
 //  Created by MustafaYektaTaraf on 1.09.2025.
 //
 
-import Foundation
+import UIKit
 
 public final class TaskStore {
     
     static let shared = TaskStore()
     
-    private var tasks: [Task] = []
+    private var tasks: [ToDoListItem] = []
     
-    public var favoriteTasks: [Task] {
-        return tasks.filter({ $0.isCompleted == false && $0.isFavorited == true })
+    init(){
+        getAllItems()
     }
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    public var completedTasks: [Task] {
-        return tasks.filter({ $0.isCompleted == true })
-    }
-    
-    public var todoTasks: [Task] {
-        return tasks.filter({ $0.isCompleted == false && $0.isFavorited == false })
-    }
-    
-    public func addTask(task: Task) {
-        tasks.insert(task, at: 0)
-    }
-    
-    public func task(at index: Int) -> Task {
-        return tasks[index]
-    }
-    
-    public func updateTask(newTask: Task) throws {
-        if let index = tasks.firstIndex(where: { $0.uuid == newTask.uuid }) {
-            tasks.remove(at: index)
-            tasks.insert(newTask, at: index)
-        } else {
-            throw TaskError.updateError("Task cannot be updated: index not found")
+    func getAllItems(){
+        do {
+            tasks = try context.fetch(ToDoListItem.fetchRequest())
+            
+        } catch {
+            
         }
     }
     
-    public func removeTask(at index: Int) {
-        tasks.remove(at: index)
+    func createItems(name:String){
+        let newItem = ToDoListItem(context: context)
+        newItem.name = name
+        newItem.date = Date()
+        newItem.priority = 0
+        
+        do {
+            try context.save()
+            getAllItems()
+        } catch {
+            
+        }
     }
     
-    public func removeTask(withUUID uuid: String) throws {
-        if let index = tasks.firstIndex(where: { $0.uuid == uuid }) {
-            tasks.remove(at: index)
-        } else {
-            throw TaskError.removeUUID("Task cannot be removed: index not found")
+    
+    
+    public var favoriteTasks: [ToDoListItem] {
+        return tasks.filter({ $0.isCompleted == false && $0.isFavorited == true })
+    }
+    
+    public var completedTasks: [ToDoListItem] {
+        return tasks.filter({ $0.isCompleted == true })
+    }
+    
+    public var todoTasks: [ToDoListItem] {
+        return tasks.filter({ $0.isCompleted == false && $0.isFavorited == false })
+    }
+    
+    public func addTask(task: ToDoListItem) {
+        do {
+            try context.save()
+            getAllItems()
+        } catch {
+            
+        }
+    }
+    
+    public func task(at index: Int) -> ToDoListItem {
+        return tasks[index]
+    }
+    
+    public func updateTask(newTask: ToDoListItem) throws {
+        do {
+            try context.save()
+            getAllItems()
+        } catch {
+            
+        }
+    }
+    
+    public func removeTask(withItem item: ToDoListItem) throws {
+        context.delete(item)
+        
+        do {
+            try context.save()
+            getAllItems()
+        } catch {
+            
         }
     }
 }

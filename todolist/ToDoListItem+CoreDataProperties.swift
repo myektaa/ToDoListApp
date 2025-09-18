@@ -1,8 +1,8 @@
 //
-//  Items+CoreDataProperties.swift
+//  ToDoListItem+CoreDataProperties.swift
 //  todolist
 //
-//  Created by MustafaYektaTaraf on 16.09.2025.
+//  Created by MustafaYektaTaraf on 18.09.2025.
 //
 //
 
@@ -19,6 +19,8 @@ extension ToDoListItem {
     @NSManaged public var date: Date?
     @NSManaged public var name: String?
     @NSManaged public var priority: Int16
+    @NSManaged public var isFavorited: Bool
+    @NSManaged public var isCompleted: Bool
 
 }
 

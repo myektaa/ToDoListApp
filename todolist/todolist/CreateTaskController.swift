@@ -13,7 +13,7 @@ class CreateTaskController: UIViewController {
     @IBOutlet weak var taskTextField: UITextField!
     @IBOutlet weak var prioritySection: UISegmentedControl!
     
-    var task: Task?
+    var task: ToDoListItem?
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -27,13 +27,11 @@ class CreateTaskController: UIViewController {
         self.view.backgroundColor = .init(named: "OG Background Color")
         
         //Default value for task
-        task = Task(
-            date: Date(),
-            name: String(),
-            priority: .high
-        )
-        
-        task?.priority = Task.TaskPriority(rawValue: prioritySection.selectedSegmentIndex) ?? .medium
+        task = ToDoListItem()
+            
+        task?.name = ""
+        task?.date = Date()
+        task?.priority = 0
         taskTextField.addTarget(self, action: #selector(taskTextFieldDidChange(_:)), for: .editingChanged)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
@@ -69,7 +67,7 @@ class CreateTaskController: UIViewController {
     
     @IBAction func segmentedControllerDidChange(_ sender: Any) {
         view.endEditing(true)
-        task?.priority = Task.TaskPriority(rawValue: prioritySection.selectedSegmentIndex) ?? .medium
+        task?.priority = Int16(prioritySection.selectedSegmentIndex)
     }
     @objc func taskTextFieldDidChange(_ textField:UITextField){
         task?.name = textField.text ?? "Görev adı yok."

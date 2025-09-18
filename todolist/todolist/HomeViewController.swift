@@ -41,7 +41,6 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        getAllItems()
         
         self.view.backgroundColor = .init(named: "OG Background Color")
         self.tableView.backgroundColor = .init(named: "OG Backgronund Color")
@@ -118,7 +117,7 @@ class HomeViewController: UIViewController {
             fatalError("CreateTaskController'a ulaşılmaya çalışırken hata oluştu.")
         }
         
-        if createdTask.name.trimmingCharacters(in: .whitespaces).isEmpty {
+        if createdTask.name?.trimmingCharacters(in: .whitespaces).isEmpty ?? true {
             let alert = UIAlertController(title: NSLocalizedString("TASK_ALERT_TITLE", comment: "Alert title"), message: NSLocalizedString("TASK_ALERT_MESSAGE", comment: "Alert Message"), preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: NSLocalizedString("TASK_OK_BUTTON", comment: "Task Ok Button"), style: .default))
                 createTaskController.present(alert, animated: true)
@@ -131,7 +130,7 @@ class HomeViewController: UIViewController {
         let indexPath = IndexPath(row: 0, section: 1)
         
         //Use indexPath to insert into the tableview
-        tableView.insertRows(at: [indexPath], with: .automatic)
+        tableView.reloadData()
         print("Eklendi")
     }
     
@@ -143,12 +142,12 @@ class HomeViewController: UIViewController {
             fatalError("EditTaskController'a ulaşılmaya çalışırken hata oluştu.")
         }
         
-        if editTask.name.trimmingCharacters(in: .whitespaces).isEmpty {
-            let alert = UIAlertController(title: NSLocalizedString("TASK_ALERT_TITLE", comment: "Alert title"), message: NSLocalizedString("TASK_ALERT_MESSAGE", comment: "Alert Message"), preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: NSLocalizedString("TASK_OK_BUTTON", comment: "Task Ok Button"), style: .default))
-                editTaskController.present(alert, animated: true)
-                return
-            }
+//        if editTask.name?.trimmingCharacters(in: .whitespaces).isEmpty ?? true {
+//            let alert = UIAlertController(title: NSLocalizedString("TASK_ALERT_TITLE", comment: "Alert title"), message: NSLocalizedString("TASK_ALERT_MESSAGE", comment: "Alert Message"), preferredStyle: .alert)
+//            alert.addAction(UIAlertAction(title: NSLocalizedString("TASK_OK_BUTTON", comment: "Task Ok Button"), style: .cancel))
+//                present(alert, animated: true)
+//                return
+//            }
         
                 
         do {
@@ -162,54 +161,7 @@ class HomeViewController: UIViewController {
         }
     }
     
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    func getAllItems(){
-        do {
-            models = try context.fetch(ToDoListItem.fetchRequest())
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        } catch {
-            
-        }
-    }
-    
-    func createItems(name:String){
-        let newItem = ToDoListItem(context: context)
-        newItem.name = name
-        newItem.date = Date()
-        newItem.priority = 0
-        
-        do {
-            try context.save()
-            getAllItems()
-        } catch {
-            
-        }
-    }
-    
-    func deleteItems(item: ToDoListItem){
-        context.delete(item)
-        
-        do {
-            try context.save()
-            getAllItems()
-        } catch {
-            
-        }
-    }
-    
-    func updateItems(item: ToDoListItem, newName: String){
-        item.name = newName
-        
-        do {
-            try context.save()
-            getAllItems()
-        } catch {
-            
-        }
-    }
 
 }
     
@@ -249,7 +201,7 @@ class HomeViewController: UIViewController {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as! TaskCell
             cell.selectionStyle = .none
-            let task: Task
+            let task: ToDoListItem
             if indexPath.section == 0 {
                 task = store.favoriteTasks[indexPath.row]
             } else if indexPath.section == 1 {
@@ -260,7 +212,7 @@ class HomeViewController: UIViewController {
             
             cell.taskLabel?.numberOfLines = 0
             cell.taskLabel?.text = task.name
-            cell.dateLabel?.text = formatter.string(from: task.date)
+            cell.dateLabel?.text = formatter.string(from: task.date ?? Date())
             
             if indexPath.section == 0 {
                 cell.favLabel.text = "⭐️"
@@ -279,7 +231,7 @@ class HomeViewController: UIViewController {
                 let task = taskToOperate(for: indexPath)
                 
                 do {
-                    try store.removeTask(withUUID: task.uuid)
+                    try store.removeTask(withItem: task)
                     tableView.deleteRows(at: [indexPath], with: .automatic)
                 } catch let error {
                     print(error)
@@ -287,8 +239,8 @@ class HomeViewController: UIViewController {
             }
         }
         
-        func taskToOperate(for indexPath: IndexPath) -> Task {
-            let taskToOperate: Task
+        func taskToOperate(for indexPath: IndexPath) -> ToDoListItem {
+            let taskToOperate: ToDoListItem
             if indexPath.section == 0 {
                 taskToOperate = store.favoriteTasks[indexPath.row]
             } else if indexPath.section == 1 {
@@ -302,24 +254,13 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDelegate {
     
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        
-//        let task = self.taskToOperate(for: indexPath)
-//        
-//        if task.name.count > 100 {
-//            return UITableView.automaticDimension
-//        } else {
-//            return 90.0
-//        }
-//    }
-    
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let deleteAction = UIContextualAction(style: .normal, title: "")
         { (action, view, completion) in
             let task = self.taskToOperate(for: indexPath)
             do {
-                try self.store.removeTask(withUUID: task.uuid)
+                try self.store.removeTask(withItem: task)
                 tableView.deleteRows(at: [indexPath], with: .automatic)
                 completion(true)
             } catch {
