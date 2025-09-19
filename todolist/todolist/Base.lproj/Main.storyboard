@@ -189,7 +189,7 @@
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="35T-YI-20S">
                                                     <rect key="frame" x="0.0" y="4" width="386" height="62"/>
-                                                    <color key="backgroundColor" name="Cell Color For To Do List"/>
+                                                    <color key="backgroundColor" name="Cell Color "/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                             <integer key="value" value="20"/>
@@ -467,7 +467,7 @@
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Srp-xr-0gG">
                                                     <rect key="frame" x="0.0" y="4" width="386" height="62"/>
-                                                    <color key="backgroundColor" name="Cell Color For To Do List"/>
+                                                    <color key="backgroundColor" name="Cell Color "/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                             <integer key="value" value="20"/>
@@ -607,8 +607,8 @@
         <namedColor name="Back Color For To Do List">
             <color red="1" green="0.15294117647058825" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="Cell Color For To Do List">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="Cell Color ">
+            <color red="1" green="0.15294117647058825" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Date Color For To Do List">
             <color red="1" green="0.15294117647058825" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
